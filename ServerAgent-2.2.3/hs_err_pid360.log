@@ -1,0 +1,1991 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000000010014ed4, pid=360, tid=2284
+#
+# JRE version: Java(TM) SE Runtime Environment (21.0.1+12) (build 21.0.1+12-LTS-29)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (21.0.1+12-LTS-29, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [sigar-amd64-winnt.dll+0x14ed4]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: E:\\All Softwares\\apache-jmeter-5.6.3\\ServerAgent-2.2.3\\startAgent.bat\\..\\CMDRunner.jar --tool PerfMonAgent
+
+Host: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz, 8 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3958)
+Time: Mon Sep  9 12:11:06 2024 Pakistan Standard Time elapsed time: 720.013875 seconds (0d 0h 12m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000200fe3615f0):  JavaThread "Thread-0"         [_thread_in_native, id=2284, stack(0x000000ede1c00000,0x000000ede1d00000) (1024K)]
+
+Stack: [0x000000ede1c00000,0x000000ede1d00000],  sp=0x000000ede1cfe910,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [sigar-amd64-winnt.dll+0x14ed4]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.hyperic.sigar.Mem.gather(Lorg/hyperic/sigar/Sigar;)V+0
+j  org.hyperic.sigar.Mem.fetch(Lorg/hyperic/sigar/Sigar;)Lorg/hyperic/sigar/Mem;+10
+j  org.hyperic.sigar.Sigar.getMem()Lorg/hyperic/sigar/Mem;+1
+j  java.lang.invoke.LambdaForm$DMH+0x0000020090018400.invokeInterface(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+21 java.base@21.0.1
+j  java.lang.invoke.LambdaForm$MH+0x0000020090008400.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+31 java.base@21.0.1
+j  java.lang.invoke.Invokers$Holder.invokeExact_MT(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+19 java.base@21.0.1
+j  jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+41 java.base@21.0.1
+j  jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+23 java.base@21.0.1
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+102 java.base@21.0.1
+j  org.hyperic.sigar.SigarProxyCache.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+363
+j  jdk.proxy1.$Proxy0.getMem()Lorg/hyperic/sigar/Mem;+9 jdk.proxy1
+j  kg.apc.perfmon.metrics.MemTotalMetric.getValue(Ljava/lang/StringBuffer;)V+4
+j  kg.apc.perfmon.PerfMonMetricGetter.getMetricsLine()Ljava/nio/ByteBuffer;+51
+J 713 c1 kg.apc.perfmon.PerfMonWorker.processSenders()V (197 bytes) @ 0x00000200801159ec [0x0000020080114c00+0x0000000000000dec]
+j  kg.apc.perfmon.PerfMonWorker.run()V+8
+j  java.lang.Thread.runWith(Ljava/lang/Object;Ljava/lang/Runnable;)V+5 java.base@21.0.1
+j  java.lang.Thread.run()V+19 java.base@21.0.1
+v  ~StubRoutines::call_stub 0x000002008753100d
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0xfffffffffebd0d88
+
+
+Registers:
+RAX=0xfffffffffebd0c50, RBX=0x00000200d0465748, RCX=0x00000200fe3619a8, RDX=0x000000ede1cfeac0
+RSP=0x000000ede1cfe910, RBP=0x000000ede1cfeaa0, RSI=0x0000000000000110, RDI=0x000002008753896e
+R8 =0x0000000000000032, R9 =0x0000000711fa3dc0, R10=0x00007ff8d87afcc0, R11=0x000000000000000c
+R12=0x0000000000000000, R13=0x00000200d0465740, R14=0x000000ede1cfeac8, R15=0x00000200fe3615f0
+RIP=0x0000000010014ed4, EFLAGS=0x0000000000010286
+
+
+Register to memory mapping:
+
+RAX=0xfffffffffebd0c50 is an unknown value
+RBX={method} {0x00000200d0465750} 'gather' '(Lorg/hyperic/sigar/Sigar;)V' in 'org/hyperic/sigar/Mem'
+RCX=0x00000200fe3619a8 points into unknown readable memory: 0x00007ff8d872c600 | 00 c6 72 d8 f8 7f 00 00
+RDX=0x000000ede1cfeac0 is pointing into the stack for thread: 0x00000200fe3615f0
+RSP=0x000000ede1cfe910 is pointing into the stack for thread: 0x00000200fe3615f0
+RBP=0x000000ede1cfeaa0 is pointing into the stack for thread: 0x00000200fe3615f0
+RSI=0x0000000000000110 is an unknown value
+RDI=0x000002008753896e is at code_begin+1454 in an Interpreter codelet
+return entry points  [0x00000200875383c0, 0x0000020087538f18]  2904 bytes
+R8 =0x0000000000000032 is an unknown value
+R9 =0x0000000711fa3dc0 is an oop: org.hyperic.sigar.Sigar 
+{0x0000000711fa3dc0} - klass: 'org/hyperic/sigar/Sigar'
+ - ---- fields (total size 6 words):
+ - 'sigarWrapper' 'I' @12  -21164976 (0xfebd0c50)
+ - 'longSigarWrapper' 'J' @16  0 (0x0000000000000000)
+ - private 'open' 'Z' @24  true (0x01)
+ - private 'mounts' 'Lorg/hyperic/sigar/FileSystemMap;' @28  null (0x00000000)
+ - private 'lastCpu' 'Lorg/hyperic/sigar/Cpu;' @32  null (0x00000000)
+ - private 'lastCpuList' '[Lorg/hyperic/sigar/Cpu;' @36  null (0x00000000)
+ - private 'processFinder' 'Lorg/hyperic/sigar/ptql/ProcessFinder;' @40  null (0x00000000)
+R10=0x00007ff8d87afcc0 jvm.dll
+R11=0x000000000000000c is an unknown value
+R12=0x0 is null
+R13=0x00000200d0465740 is pointing into metadata
+R14=0x000000ede1cfeac8 is pointing into the stack for thread: 0x00000200fe3615f0
+R15=0x00000200fe3615f0 is a thread
+
+Top of Stack: (sp=0x000000ede1cfe910)
+0x000000ede1cfe910:   00000200fe3619a8 000000ede1cfeac0
+0x000000ede1cfe920:   00000200fe3615f0 0000000000000000
+0x000000ede1cfe930:   fffffffffebd0c50 000000000000000d
+0x000000ede1cfe940:   000002008753896e 000000001001cdb1
+0x000000ede1cfe950:   00000200fe3619a8 000000ede1cfeac0
+0x000000ede1cfe960:   0000a25344494d68 000002008753896e
+0x000000ede1cfe970:   00000200fe3615f0 000000ede1cfeac8
+0x000000ede1cfe980:   0000000000000000 000002008753896e
+0x000000ede1cfe990:   000002008753896e 00000200d0465740
+0x000000ede1cfe9a0:   000000ede1cfeaa0 00007ff8d7f46675
+0x000000ede1cfe9b0:   000002008753896e 00000200fdd55450
+0x000000ede1cfe9c0:   00000200fe3615f0 00000200fe3615f0
+0x000000ede1cfe9d0:   00000200d0465748 00000200fe3615f0
+0x000000ede1cfe9e0:   000002008753896e 000002008753cc7c
+0x000000ede1cfe9f0:   00000200d0465748 00000200d0465748
+0x000000ede1cfea00:   000000ede1cfeac0 000002008753896e
+0x000000ede1cfea10:   00000200d0465748 000002008753ce0b
+0x000000ede1cfea20:   00000200fe3619a8 000000ede1cfeac8
+0x000000ede1cfea30:   000000ede1cfeac0 0000000000000110
+0x000000ede1cfea40:   00000200d04656b0 0000020087548399
+0x000000ede1cfea50:   000002008753ca9f 000000ede1cfea58
+0x000000ede1cfea60:   00000200d0465740 0000000000000005
+0x000000ede1cfea70:   00000200d04a4e20 0000000000000000
+0x000000ede1cfea80:   0000000711fd69b0 00000200d0465748
+0x000000ede1cfea90:   0000000000000000 000000ede1cfeac0
+0x000000ede1cfeaa0:   000000ede1cfeb18 0000020087538846
+0x000000ede1cfeab0:   0000000000000000 000002008753a397
+0x000000ede1cfeac0:   0000000711fa3dc0 0000000711cf5080
+0x000000ede1cfead0:   000000ede1cfead0 00000200d04657f2
+0x000000ede1cfeae0:   0000000000000003 00000200d04a4e20
+0x000000ede1cfeaf0:   0000000000000000 0000000711fd69b0
+0x000000ede1cfeb00:   00000200d0465820 000000ede1cfeac0 
+
+Instructions: (pc=0x0000000010014ed4)
+0x0000000010014dd4:   8b 04 c1 48 8d 15 12 58 04 00 48 8b 4c 24 20 e8
+0x0000000010014de4:   c8 1e 02 00 48 83 c4 38 c3 cc cc cc 48 89 54 24
+0x0000000010014df4:   10 48 89 4c 24 08 b8 02 00 01 00 c3 cc cc cc cc
+0x0000000010014e04:   cc cc cc cc cc cc cc cc cc cc cc cc 48 89 54 24
+0x0000000010014e14:   10 48 89 4c 24 08 c3 cc cc cc cc cc cc cc cc cc
+0x0000000010014e24:   cc cc cc cc cc cc cc cc cc cc cc cc 48 89 54 24
+0x0000000010014e34:   10 48 89 4c 24 08 48 83 ec 38 48 8b 54 24 48 48
+0x0000000010014e44:   8b 4c 24 40 e8 43 00 00 00 48 89 44 24 28 48 83
+0x0000000010014e54:   7c 24 28 00 75 04 33 c0 eb 24 48 8b 44 24 28 48
+0x0000000010014e64:   8b 40 10 48 89 44 24 20 48 8b 44 24 28 48 8b 4c
+0x0000000010014e74:   24 40 48 89 08 48 8b 44 24 28 48 8b 40 10 48 83
+0x0000000010014e84:   c4 38 c3 cc cc cc cc cc cc cc cc cc 48 89 54 24
+0x0000000010014e94:   10 48 89 4c 24 08 48 83 ec 38 48 8b 54 24 48 48
+0x0000000010014ea4:   8b 4c 24 40 e8 73 02 00 00 48 89 44 24 20 48 83
+0x0000000010014eb4:   7c 24 20 00 75 15 48 8d 15 df 58 04 00 48 8b 4c
+0x0000000010014ec4:   24 40 e8 45 00 00 00 33 c0 eb 32 48 8b 44 24 20
+0x0000000010014ed4:   83 b8 38 01 00 00 00 74 1f 48 8b 44 24 20 44 8b
+0x0000000010014ee4:   80 38 01 00 00 48 8b 54 24 20 48 8b 4c 24 40 e8
+0x0000000010014ef4:   68 00 00 00 33 c0 eb 05 48 8b 44 24 20 48 83 c4
+0x0000000010014f04:   38 c3 cc cc cc cc cc cc cc cc cc cc 48 89 54 24
+0x0000000010014f14:   10 48 89 4c 24 08 48 83 ec 38 48 8b 44 24 40 48
+0x0000000010014f24:   8b 00 48 8d 15 d3 56 04 00 48 8b 4c 24 40 ff 50
+0x0000000010014f34:   30 48 89 44 24 20 48 8b 44 24 40 48 8b 00 4c 8b
+0x0000000010014f44:   44 24 48 48 8b 54 24 20 48 8b 4c 24 40 ff 50 70
+0x0000000010014f54:   48 83 c4 38 c3 cc cc cc cc cc cc cc 44 89 44 24
+0x0000000010014f64:   18 48 89 54 24 10 48 89 4c 24 08 48 83 ec 58 8b
+0x0000000010014f74:   44 24 70 89 44 24 28 81 7c 24 28 40 9c 00 00 7e
+0x0000000010014f84:   0d 8b 44 24 28 2d 40 9c 00 00 89 44 24 28 8b 44
+0x0000000010014f94:   24 28 89 44 24 40 83 7c 24 40 02 74 16 83 7c 24
+0x0000000010014fa4:   40 05 74 30 81 7c 24 40 21 4e 00 00 74 47 e9 00
+0x0000000010014fb4:   01 00 00 48 8b 44 24 60 48 8b 00 48 8d 15 c2 56
+0x0000000010014fc4:   04 00 48 8b 4c 24 60 ff 50 30 48 89 44 24 20 e9 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x00000200fe3619a8 points into unknown readable memory: 0x00007ff8d872c600 | 00 c6 72 d8 f8 7f 00 00
+stack at sp + 1 slots: 0x000000ede1cfeac0 is pointing into the stack for thread: 0x00000200fe3615f0
+stack at sp + 2 slots: 0x00000200fe3615f0 is a thread
+stack at sp + 3 slots: 0x0 is null
+stack at sp + 4 slots: 0xfffffffffebd0c50 is an unknown value
+stack at sp + 5 slots: 0x000000000000000d is an unknown value
+stack at sp + 6 slots: 0x000002008753896e is at code_begin+1454 in an Interpreter codelet
+return entry points  [0x00000200875383c0, 0x0000020087538f18]  2904 bytes
+stack at sp + 7 slots: 0x000000001001cdb1 sigar-amd64-winnt.dll
+
+
+Compiled method (c1)  720103  713   !   3       kg.apc.perfmon.PerfMonWorker::processSenders (197 bytes)
+ total in heap  [0x0000020080114810,0x0000020080117260] = 10832
+ relocation     [0x0000020080114970,0x0000020080114bf8] = 648
+ main code      [0x0000020080114c00,0x00000200801167c0] = 7104
+ stub code      [0x00000200801167c0,0x00000200801168d8] = 280
+ oops           [0x00000200801168d8,0x0000020080116908] = 48
+ metadata       [0x0000020080116908,0x00000200801169e0] = 216
+ scopes data    [0x00000200801169e0,0x0000020080116d18] = 824
+ scopes pcs     [0x0000020080116d18,0x00000200801170d8] = 960
+ dependencies   [0x00000200801170d8,0x0000020080117100] = 40
+ handler table  [0x0000020080117100,0x00000200801171f0] = 240
+ nul chk table  [0x00000200801171f0,0x0000020080117260] = 112
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker'
+  #           [sp+0xe0]  (sp of caller)
+  0x0000020080114c00: 448b 5208 | 49bb 0000 | 008f 0002 | 0000 4d03 | d34c 3bd0 
+
+  0x0000020080114c14: ;   {runtime_call ic_miss_stub}
+  0x0000020080114c14: 0f85 669b | 4607 660f | 1f44 0000 
+[Verified Entry Point]
+  0x0000020080114c20: 8984 2400 | 80ff ff55 | 4881 ecd0 | 0000 0090 | 4181 7f20 | 0100 0000 
+
+  0x0000020080114c38: ;   {runtime_call StubRoutines (final stubs)}
+  0x0000020080114c38: 7405 e821 | 0145 0748 | 8994 2490 
+
+  0x0000020080114c44: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114c44: 0000 0049 | b8c8 5a49 | d000 0200 | 0041 8bb0 | cc00 0000 | 83c6 0241 | 89b0 cc00 | 0000 81e6 
+  0x0000020080114c64: fe07 0000 | 83fe 000f | 84c8 1700 | 008b 7234 | 48c1 e603 
+
+  0x0000020080114c78: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114c78: 4c8b c248 | bfc8 5a49 | d000 0200 | 0048 8387 | 1001 0000 | 014c 8b42 | 1048 3b06 
+
+  0x0000020080114c94: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114c94: 488b fe48 | bbc8 5a49 | d000 0200 | 008b 7f08 | 49ba 0000 | 008f 0002 | 0000 4903 | fa48 3bbb 
+  0x0000020080114cb4: 3001 0000 | 750d 4883 | 8338 0100 | 0001 e960 | 0000 0048 | 3bbb 4001 | 0000 750d | 4883 8348 
+  0x0000020080114cd4: 0100 0001 | e94a 0000 | 0048 83bb | 3001 0000 | 0075 1748 | 89bb 3001 | 0000 48c7 | 8338 0100 
+  0x0000020080114cf4: 0001 0000 | 00e9 2900 | 0000 4883 | bb40 0100 | 0000 7517 | 4889 bb40 | 0100 0048 | c783 4801 
+  0x0000020080114d14: 0000 0100 | 0000 e908 | 0000 0048 | 8383 2001 | 0000 0148 | 8bd6 0f1f 
+
+  0x0000020080114d2c: ;   {optimized virtual_call}
+  0x0000020080114d2c: 4400 00e8 
+
+  0x0000020080114d30: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokevirtual select {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@8 (line 246)
+  0x0000020080114d30: 4c27 0000 
+
+  0x0000020080114d34: ;   {other}
+  0x0000020080114d34: 0f1f 8400 | 2405 0000 
+
+  0x0000020080114d3c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114d3c: 48be c85a | 49d0 0002 | 0000 4883 | 8658 0100 
+
+  0x0000020080114d4c: ;   {runtime_call}
+  0x0000020080114d4c: 0001 48b8 | 503b 23d8 | f87f 0000 
+
+  0x0000020080114d58: ;   {other}
+  0x0000020080114d58: ffd0 0f1f | 8400 0000 | 0000 4889 | 8424 9800 | 0000 488b | 9424 9000 | 0000 8b72 | 3448 c1e6 
+  0x0000020080114d78: 0348 3b06 
+
+  0x0000020080114d7c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114d7c: 488b fe48 | bbc8 5a49 | d000 0200 | 0048 8383 | 6801 0000 
+
+  0x0000020080114d90: ;   {metadata(method data for {method} {0x00000200d0089210} 'selectedKeys' '()Ljava/util/Set;' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080114d90: 0148 bf70 | fb22 d000 | 0200 008b | 9fcc 0000 | 0083 c302 | 899f cc00 | 0000 81e3 | feff 1f00 
+  0x0000020080114db0: 83fb 000f | 84ab 1600 | 0048 8bfe 
+
+  0x0000020080114dbc: ;   {metadata(method data for {method} {0x00000200d0089210} 'selectedKeys' '()Ljava/util/Set;' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080114dbc: 48bb 70fb | 22d0 0002 | 0000 4883 | 8310 0100 
+
+  0x0000020080114dcc: ;   {metadata(method data for {method} {0x00000200d00890a0} 'ensureOpen' '()V' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080114dcc: 0001 48bf | c0b3 22d0 | 0002 0000 | 8b9f cc00 | 0000 83c3 | 0289 9fcc | 0000 0081 | e3fe ff1f 
+  0x0000020080114dec: 0083 fb00 | 0f84 8f16 | 0000 488b 
+
+  0x0000020080114df8: ;   {metadata(method data for {method} {0x00000200d00890a0} 'ensureOpen' '()V' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080114df8: fe48 bbc0 | b322 d000 | 0200 0048 | 8383 1001 
+
+  0x0000020080114e08: ;   {metadata(method data for {method} {0x00000200d008b148} 'isOpen' '()Z' in 'java/nio/channels/spi/AbstractSelector')}
+  0x0000020080114e08: 0000 0148 | bf10 aa22 | d000 0200 | 008b 9fcc | 0000 0083 | c302 899f | cc00 0000 | 81e3 feff 
+  0x0000020080114e28: 1f00 83fb | 000f 8473 | 1600 000f | be7e 0c83 
+
+  0x0000020080114e38: ;   {metadata(method data for {method} {0x00000200d008b148} 'isOpen' '()Z' in 'java/nio/channels/spi/AbstractSelector')}
+  0x0000020080114e38: ff00 48bf | 10aa 22d0 | 0002 0000 | 48bb 1001 | 0000 0000 | 0000 0f85 | 0a00 0000 | 48bb 2001 
+  0x0000020080114e58: 0000 0000 | 0000 488b | 0c1f 488d | 4901 4889 | 0c1f 0f85 | 1a00 0000 
+
+  0x0000020080114e70: ;   {metadata(method data for {method} {0x00000200d008b148} 'isOpen' '()Z' in 'java/nio/channels/spi/AbstractSelector')}
+  0x0000020080114e70: 48bf 10aa | 22d0 0002 | 0000 ff87 | 3001 0000 | bf01 0000 | 00e9 0500 | 0000 bf00 | 0000 0083 
+  0x0000020080114e90: e701 83ff 
+
+  0x0000020080114e94: ;   {metadata(method data for {method} {0x00000200d00890a0} 'ensureOpen' '()V' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080114e94: 0048 bfc0 | b322 d000 | 0200 0048 | bb58 0100 | 0000 0000 | 000f 840a | 0000 0048 | bb48 0100 
+  0x0000020080114eb4: 0000 0000 | 0048 8b0c | 1f48 8d49 | 0148 890c | 1f0f 8416 | 1500 008b | 7628 48c1 | e603 483b 
+  0x0000020080114ed4: 0648 8bfe 
+
+  0x0000020080114ed8: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114ed8: 48bb c85a | 49d0 0002 | 0000 8b7f | 0849 ba00 | 0000 8f00 | 0200 0049 | 03fa 483b | bbb0 0100 
+  0x0000020080114ef8: 0075 0d48 | 8383 b801 | 0000 01e9 | 6000 0000 | 483b bbc0 | 0100 0075 | 0d48 8383 | c801 0000 
+  0x0000020080114f18: 01e9 4a00 | 0000 4883 | bbb0 0100 | 0000 7517 | 4889 bbb0 | 0100 0048 | c783 b801 | 0000 0100 
+  0x0000020080114f38: 0000 e929 | 0000 0048 | 83bb c001 | 0000 0075 | 1748 89bb | c001 0000 | 48c7 83c8 | 0100 0001 
+  0x0000020080114f58: 0000 00e9 | 0800 0000 | 4883 83a0 | 0100 0001 | 488b d666 | 9048 b8b0 | c704 9000 
+
+  0x0000020080114f74: ;   {virtual_call}
+  0x0000020080114f74: 0200 00e8 
+
+  0x0000020080114f78: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokeinterface iterator {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@23 (line 252)
+  0x0000020080114f78: c4e2 ffff 
+
+  0x0000020080114f7c: ;   {other}
+  0x0000020080114f7c: 0f1f 8400 | 6c07 0001 | 4889 8424 | a000 0000 | 0f1f 4000 
+
+  0x0000020080114f90: ; implicit exception: dispatches to 0x00000200801164cc
+  0x0000020080114f90: 483b 0048 
+
+  0x0000020080114f94: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080114f94: 8bf0 48bf | c85a 49d0 | 0002 0000 | 8b76 0849 | ba00 0000 | 8f00 0200 | 0049 03f2 | 483b b7e8 
+  0x0000020080114fb4: 0100 0075 | 0d48 8387 | f001 0000 | 01e9 6000 | 0000 483b | b7f8 0100 | 0075 0d48 | 8387 0002 
+  0x0000020080114fd4: 0000 01e9 | 4a00 0000 | 4883 bfe8 | 0100 0000 | 7517 4889 | b7e8 0100 | 0048 c787 | f001 0000 
+  0x0000020080114ff4: 0100 0000 | e929 0000 | 0048 83bf | f801 0000 | 0075 1748 | 89b7 f801 | 0000 48c7 | 8700 0200 
+  0x0000020080115014: 0001 0000 | 00e9 0800 | 0000 4883 | 87d8 0100 | 0001 488b | d00f 1f40 | 0048 b8b0 | 831a 8f00 
+  0x0000020080115034: ;   {virtual_call}
+  0x0000020080115034: 0200 00e8 
+
+  0x0000020080115038: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*invokeinterface hasNext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@30 (line 253)
+  0x0000020080115038: 647e f3ff 
+
+  0x000002008011503c: ;   {other}
+  0x000002008011503c: 0f1f 8400 | 2c08 0002 
+
+  0x0000020080115044: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115044: 83f8 0048 | bac8 5a49 | d000 0200 | 0048 be10 | 0200 0000 | 0000 000f | 840a 0000 | 0048 be20 
+  0x0000020080115064: 0200 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 320f | 8415 1000 | 0048 8b84 | 24a0 0000 
+  0x0000020080115084: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115084: 0048 bac8 | 5a49 d000 | 0200 008b | 4008 49ba | 0000 008f | 0002 0000 | 4903 c248 | 3b82 4002 
+  0x00000200801150a4: 0000 750d | 4883 8248 | 0200 0001 | e960 0000 | 0048 3b82 | 5002 0000 | 750d 4883 | 8258 0200 
+  0x00000200801150c4: 0001 e94a | 0000 0048 | 83ba 4002 | 0000 0075 | 1748 8982 | 4002 0000 | 48c7 8248 | 0200 0001 
+  0x00000200801150e4: 0000 00e9 | 2900 0000 | 4883 ba50 | 0200 0000 | 7517 4889 | 8250 0200 | 0048 c782 | 5802 0000 
+  0x0000020080115104: 0100 0000 | e908 0000 | 0048 8382 | 3002 0000 | 0148 8b94 | 24a0 0000 | 0048 b8b0 | 831a 8f00 
+  0x0000020080115124: ;   {virtual_call}
+  0x0000020080115124: 0200 00e8 
+
+  0x0000020080115128: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*invokeinterface next {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@39 (line 254)
+  0x0000020080115128: 14c9 feff 
+
+  0x000002008011512c: ;   {other}
+  0x000002008011512c: 0f1f 8400 | 1c09 0003 | 4883 f800 
+
+  0x0000020080115138: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115138: 7516 48bf | c85a 49d0 | 0002 0000 | 808f 6102 | 0000 01e9 | cd00 0000 
+
+  0x0000020080115150: ;   {metadata('java/nio/channels/SelectionKey')}
+  0x0000020080115150: 48bb 185e | 0790 0002 | 0000 8b78 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03fa 483b | 5f38 0f85 
+  0x0000020080115170: 8d00 0000 
+
+  0x0000020080115174: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115174: 48bf c85a | 49d0 0002 | 0000 8b58 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03da 483b | 9f78 0200 
+  0x0000020080115194: 0075 0d48 | 8387 8002 | 0000 01e9 | 7900 0000 | 483b 9f88 | 0200 0075 | 0d48 8387 | 9002 0000 
+  0x00000200801151b4: 01e9 6300 | 0000 4883 | bf78 0200 | 0000 7517 | 4889 9f78 | 0200 0048 | c787 8002 | 0000 0100 
+  0x00000200801151d4: 0000 e942 | 0000 0048 | 83bf 8802 | 0000 0075 | 1748 899f | 8802 0000 | 48c7 8790 | 0200 0001 
+  0x00000200801151f4: 0000 00e9 | 2100 0000 | e91c 0000 
+
+  0x0000020080115200: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115200: 0048 bfc8 | 5a49 d000 | 0200 0048 | 83af 6802 | 0000 01e9 | b912 0000 | e900 0000 | 0048 8bf0 
+  0x0000020080115220: 4889 b424 | a800 0000 | 488b 8424 | a000 0000 
+
+  0x0000020080115230: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115230: 48ba c85a | 49d0 0002 | 0000 8b40 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03c2 483b | 82b0 0200 
+  0x0000020080115250: 0075 0d48 | 8382 b802 | 0000 01e9 | 6000 0000 | 483b 82c0 | 0200 0075 | 0d48 8382 | c802 0000 
+  0x0000020080115270: 01e9 4a00 | 0000 4883 | bab0 0200 | 0000 7517 | 4889 82b0 | 0200 0048 | c782 b802 | 0000 0100 
+  0x0000020080115290: 0000 e929 | 0000 0048 | 83ba c002 | 0000 0075 | 1748 8982 | c002 0000 | 48c7 82c8 | 0200 0001 
+  0x00000200801152b0: 0000 00e9 | 0800 0000 | 4883 82a0 | 0200 0001 | 488b 9424 | a000 0000 | 0f1f 4400 | 0048 b8b0 
+  0x00000200801152d0: 831a 8f00 
+
+  0x00000200801152d4: ;   {virtual_call}
+  0x00000200801152d4: 0200 00e8 
+
+  0x00000200801152d8: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokeinterface remove {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@50 (line 256)
+  0x00000200801152d8: a4ea ffff 
+
+  0x00000200801152dc: ;   {other}
+  0x00000200801152dc: 0f1f 8400 | cc0a 0004 | 488b b424 | a800 0000 
+
+  0x00000200801152ec: ; implicit exception: dispatches to 0x00000200801164da
+  0x00000200801152ec: 483b 064c 
+
+  0x00000200801152f0: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801152f0: 8bc6 48ba | c85a 49d0 | 0002 0000 | 4883 82d8 | 0200 0001 
+
+  0x0000020080115304: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x0000020080115304: 49b8 d8ad | 22d0 0002 | 0000 418b | 90cc 0000 | 0083 c202 | 4189 90cc | 0000 0081 | e2fe ff1f 
+  0x0000020080115324: 0083 fa00 | 0f84 b111 | 0000 440f | be46 1041 
+
+  0x0000020080115334: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x0000020080115334: 83f8 0049 | b8d8 ad22 | d000 0200 | 0048 ba10 | 0100 0000 | 0000 000f | 850a 0000 | 0048 ba20 
+  0x0000020080115354: 0100 0000 | 0000 0049 | 8b3c 1048 | 8d7f 0149 | 893c 100f | 851c 0000 
+
+  0x000002008011536c: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x000002008011536c: 0049 b8d8 | ad22 d000 | 0200 0041 | ff80 3001 | 0000 41b8 | 0100 0000 | e906 0000 | 0041 b800 
+  0x000002008011538c: 0000 0041 | 83e0 0141 
+
+  0x0000020080115394: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115394: 83f8 0049 | b8c8 5a49 | d000 0200 | 0048 ba20 | 0300 0000 | 0000 000f | 840a 0000 | 0048 ba10 
+  0x00000200801153b4: 0300 0000 | 0000 0049 | 8b3c 1048 | 8d7f 0149 | 893c 100f | 8476 0c00 | 004c 8bc6 
+
+  0x00000200801153d0: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801153d0: 48ba c85a | 49d0 0002 | 0000 4883 | 8248 0300 
+
+  0x00000200801153e0: ;   {metadata(method data for {method} {0x00000200d0205888} 'isWritable' '()Z' in 'java/nio/channels/SelectionKey')}
+  0x00000200801153e0: 0001 49b8 | f808 23d0 | 0002 0000 | 418b 90cc | 0000 0083 | c202 4189 | 90cc 0000 | 0081 e2fe 
+  0x0000020080115400: ff1f 0083 | fa00 0f84 | f410 0000 
+
+  0x000002008011540c: ;   {metadata(method data for {method} {0x00000200d0205888} 'isWritable' '()Z' in 'java/nio/channels/SelectionKey')}
+  0x000002008011540c: 4c8b c648 | baf8 0823 | d000 0200 | 0048 8382 | 1001 0000 
+
+  0x0000020080115420: ;   {metadata(method data for {method} {0x00000200d02037c8} 'readyOps' '()I' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115420: 0149 b8e0 | cd22 d000 | 0200 0041 | 8b90 cc00 | 0000 83c2 | 0241 8990 | cc00 0000 | 81e2 feff 
+  0x0000020080115440: 1f00 83fa | 000f 84d6 | 1000 004c 
+
+  0x000002008011544c: ;   {metadata(method data for {method} {0x00000200d02037c8} 'readyOps' '()I' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x000002008011544c: 8bc6 48ba | e0cd 22d0 | 0002 0000 | 4883 8210 | 0100 0001 
+
+  0x0000020080115460: ;   {metadata(method data for {method} {0x00000200d02030a0} 'ensureValid' '()V' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115460: 49b8 28cc | 22d0 0002 | 0000 418b | 90cc 0000 | 0083 c202 | 4189 90cc | 0000 0081 | e2fe ff1f 
+  0x0000020080115480: 0083 fa00 | 0f84 b810 | 0000 4c8b 
+
+  0x000002008011548c: ;   {metadata(method data for {method} {0x00000200d02030a0} 'ensureValid' '()V' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x000002008011548c: c648 ba28 | cc22 d000 | 0200 0048 | 8382 1001 
+
+  0x000002008011549c: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x000002008011549c: 0000 0149 | b8d8 ad22 | d000 0200 | 0041 8b90 | cc00 0000 | 83c2 0241 | 8990 cc00 | 0000 81e2 
+  0x00000200801154bc: feff 1f00 | 83fa 000f | 849a 1000 | 0044 0fbe | 4610 4183 
+
+  0x00000200801154d0: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x00000200801154d0: f800 49b8 | d8ad 22d0 | 0002 0000 | 48ba 1001 | 0000 0000 | 0000 0f85 | 0a00 0000 | 48ba 2001 
+  0x00000200801154f0: 0000 0000 | 0000 498b | 3c10 488d | 7f01 4989 | 3c10 0f85 | 1c00 0000 
+
+  0x0000020080115508: ;   {metadata(method data for {method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x0000020080115508: 49b8 d8ad | 22d0 0002 | 0000 41ff | 8030 0100 | 0041 b801 | 0000 00e9 | 0600 0000 | 41b8 0000 
+  0x0000020080115528: 0000 4183 | e001 4183 
+
+  0x0000020080115530: ;   {metadata(method data for {method} {0x00000200d02030a0} 'ensureValid' '()V' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115530: f800 49b8 | 28cc 22d0 | 0002 0000 | 48ba 5801 | 0000 0000 | 0000 0f84 | 0a00 0000 | 48ba 4801 
+  0x0000020080115550: 0000 0000 | 0000 498b | 3c10 488d | 7f01 4989 | 3c10 0f84 | 300e 0000 | 448b 4618 | 4183 e004 
+  0x0000020080115570: 4183 f800 
+
+  0x0000020080115574: ;   {metadata(method data for {method} {0x00000200d0205888} 'isWritable' '()Z' in 'java/nio/channels/SelectionKey')}
+  0x0000020080115574: 49b8 f808 | 23d0 0002 | 0000 48ba | 4801 0000 | 0000 0000 | 0f84 0a00 | 0000 48ba | 5801 0000 
+  0x0000020080115594: 0000 0000 | 498b 3c10 | 488d 7f01 | 4989 3c10 | 0f84 1c00 
+
+  0x00000200801155a8: ;   {metadata(method data for {method} {0x00000200d0205888} 'isWritable' '()Z' in 'java/nio/channels/SelectionKey')}
+  0x00000200801155a8: 0000 49b8 | f808 23d0 | 0002 0000 | 41ff 8068 | 0100 0041 | b801 0000 | 00e9 0600 | 0000 41b8 
+  0x00000200801155c8: 0000 0000 | 4183 e001 | 4183 f800 
+
+  0x00000200801155d4: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801155d4: 49b8 c85a | 49d0 0002 | 0000 48ba | 8003 0000 | 0000 0000 | 0f84 0a00 | 0000 48ba | 9003 0000 
+  0x00000200801155f4: 0000 0000 | 498b 3c10 | 488d 7f01 | 4989 3c10 | 0f84 ea09 | 0000 4c8b 
+
+  0x000002008011560c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x000002008011560c: c648 bac8 | 5a49 d000 | 0200 0048 | 8382 a003 
+
+  0x000002008011561c: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x000002008011561c: 0000 0149 | b878 c022 | d000 0200 | 0041 8b90 | cc00 0000 | 83c2 0241 | 8990 cc00 | 0000 81e2 
+  0x000002008011563c: feff 1f00 | 83fa 000f | 843b 0f00 | 0044 8b46 | 2849 c1e0 | 0349 83f8 
+
+  0x0000020080115654: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115654: 0075 1648 | bf78 c022 | d000 0200 | 0080 8f09 | 0100 0001 | e9cf 0000 
+
+  0x000002008011566c: ;   {metadata('java/nio/channels/SelectableChannel')}
+  0x000002008011566c: 0048 bbb0 | 8d04 9000 | 0200 0041 | 8b78 0849 | ba00 0000 | 8f00 0200 | 0049 03fa | 483b 5f40 
+  0x000002008011568c: 0f85 8e00 
+
+  0x0000020080115690: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115690: 0000 48bf | 78c0 22d0 | 0002 0000 | 418b 5808 | 49ba 0000 | 008f 0002 | 0000 4903 | da48 3b9f 
+  0x00000200801156b0: 2001 0000 | 750d 4883 | 8728 0100 | 0001 e979 | 0000 0048 | 3b9f 3001 | 0000 750d | 4883 8738 
+  0x00000200801156d0: 0100 0001 | e963 0000 | 0048 83bf | 2001 0000 | 0075 1748 | 899f 2001 | 0000 48c7 | 8728 0100 
+  0x00000200801156f0: 0001 0000 | 00e9 4200 | 0000 4883 | bf30 0100 | 0000 7517 | 4889 9f30 | 0100 0048 | c787 3801 
+  0x0000020080115710: 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x0000020080115720: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115720: 48bf 78c0 | 22d0 0002 | 0000 4883 | af10 0100 | 0001 e96e | 0e00 00e9 | 0000 0000 | 4983 f800 
+  0x0000020080115740: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115740: 7516 48bf | c85a 49d0 | 0002 0000 | 808f d103 | 0000 01e9 | cf00 0000 
+
+  0x0000020080115758: ;   {metadata('java/nio/channels/DatagramChannel')}
+  0x0000020080115758: 48bb 3834 | 0790 0002 | 0000 418b | 7808 49ba | 0000 008f | 0002 0000 | 4903 fa48 | 3b5f 500f 
+  0x0000020080115778: 858e 0000 
+
+  0x000002008011577c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x000002008011577c: 0048 bfc8 | 5a49 d000 | 0200 0041 | 8b58 0849 | ba00 0000 | 8f00 0200 | 0049 03da | 483b 9fe8 
+  0x000002008011579c: 0300 0075 | 0d48 8387 | f003 0000 | 01e9 7e00 | 0000 483b | 9ff8 0300 | 0075 0d48 | 8387 0004 
+  0x00000200801157bc: 0000 01e9 | 6800 0000 | 4883 bfe8 | 0300 0000 | 7517 4889 | 9fe8 0300 | 0048 c787 | f003 0000 
+  0x00000200801157dc: 0100 0000 | e947 0000 | 0048 83bf | f803 0000 | 0075 1748 | 899f f803 | 0000 48c7 | 8700 0400 
+  0x00000200801157fc: 0001 0000 | 00e9 2600 | 0000 e921 
+
+  0x0000020080115808: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115808: 0000 0048 | bfc8 5a49 | d000 0200 | 0048 83af | d803 0000 | 01e9 0500 | 0000 e905 | 0000 004d 
+  0x0000020080115828: 33c0 eb0a | 49b8 0100 | 0000 0000 | 0000 4183 
+
+  0x0000020080115838: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115838: f800 49b8 | c85a 49d0 | 0002 0000 | 48ba 1004 | 0000 0000 | 0000 0f84 | 0a00 0000 | 48ba 2004 
+  0x0000020080115858: 0000 0000 | 0000 498b | 3c10 488d | 7f01 4989 | 3c10 0f84 | 4900 0000 | 488b 9424 | 9000 0000 
+  0x0000020080115878: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115878: 49b8 c85a | 49d0 0002 | 0000 4983 | 8030 0400 | 0001 4c8b | c648 8b94 | 2490 0000 
+
+  0x0000020080115894: ;   {optimized virtual_call}
+  0x0000020080115894: 0066 90e8 
+
+  0x0000020080115898: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokespecial sendToUDP {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@88 (line 265)
+  0x0000020080115898: 0474 0000 
+
+  0x000002008011589c: ;   {other}
+  0x000002008011589c: 0f1f 8400 | 8c10 0005 
+
+  0x00000200801158a4: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801158a4: 48ba c85a | 49d0 0002 | 0000 ff82 | 4004 0000 | e93b 0400 | 0048 8bd6 
+
+  0x00000200801158bc: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801158bc: 48bf c85a | 49d0 0002 | 0000 4883 | 8758 0400 | 0001 8b56 | 0c48 c1e2 | 0348 83fa 
+
+  0x00000200801158d8: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801158d8: 0075 1648 | bbc8 5a49 | d000 0200 | 0080 8b89 | 0400 0001 | e9cc 0000 
+
+  0x00000200801158f0: ;   {metadata('kg/apc/perfmon/PerfMonMetricGetter')}
+  0x00000200801158f0: 0048 b800 | 7201 9000 | 0200 008b | 7a08 49ba | 0000 008f | 0002 0000 | 4903 fa48 | 3bc7 0f85 
+  0x0000020080115910: 8d00 0000 
+
+  0x0000020080115914: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115914: 48bb c85a | 49d0 0002 | 0000 8b42 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03c2 483b | 83a0 0400 
+  0x0000020080115934: 0075 0d48 | 8383 a804 | 0000 01e9 | 7900 0000 | 483b 83b0 | 0400 0075 | 0d48 8383 | b804 0000 
+  0x0000020080115954: 01e9 6300 | 0000 4883 | bba0 0400 | 0000 7517 | 4889 83a0 | 0400 0048 | c783 a804 | 0000 0100 
+  0x0000020080115974: 0000 e942 | 0000 0048 | 83bb b004 | 0000 0075 | 1748 8983 | b004 0000 | 48c7 83b8 | 0400 0001 
+  0x0000020080115994: 0000 00e9 | 2100 0000 | e91c 0000 
+
+  0x00000200801159a0: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801159a0: 0048 bbc8 | 5a49 d000 | 0200 0048 | 83ab 9004 | 0000 01e9 | f60b 0000 | e900 0000 | 0048 3b02 
+  0x00000200801159c0: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801159c0: 488b fa48 | bbc8 5a49 | d000 0200 
+
+  0x00000200801159cc: ;   {metadata('kg/apc/perfmon/PerfMonMetricGetter')}
+  0x00000200801159cc: 0049 ba00 | 7201 9000 | 0200 004c | 8993 d804 | 0000 4883 | 83e0 0400 
+
+  0x00000200801159e4: ;   {optimized virtual_call}
+  0x00000200801159e4: 0001 90e8 
+
+  0x00000200801159e8: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual getMetricsLine {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@106 (line 268)
+  0x00000200801159e8: 290e 0000 
+
+  0x00000200801159ec: ;   {other}
+  0x00000200801159ec: 0f1f 8400 | dc11 0006 | 488b b424 | a800 0000 
+
+  0x00000200801159fc: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801159fc: 49b8 c85a | 49d0 0002 | 0000 4983 | 8000 0500 
+
+  0x0000020080115a0c: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115a0c: 0001 49b8 | 78c0 22d0 | 0002 0000 | 418b 90cc | 0000 0083 | c202 4189 | 90cc 0000 | 0081 e2fe 
+  0x0000020080115a2c: ff1f 0083 | fa00 0f84 | 840b 0000 | 488b b424 | a800 0000 | 448b 4628 | 49c1 e003 | 4983 f800 
+  0x0000020080115a4c: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115a4c: 7516 48bf | 78c0 22d0 | 0002 0000 | 808f 0901 | 0000 01e9 | cf00 0000 
+
+  0x0000020080115a64: ;   {metadata('java/nio/channels/SelectableChannel')}
+  0x0000020080115a64: 48bb b08d | 0490 0002 | 0000 418b | 7808 49ba | 0000 008f | 0002 0000 | 4903 fa48 | 3b5f 400f 
+  0x0000020080115a84: 858e 0000 
+
+  0x0000020080115a88: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115a88: 0048 bf78 | c022 d000 | 0200 0041 | 8b58 0849 | ba00 0000 | 8f00 0200 | 0049 03da | 483b 9f20 
+  0x0000020080115aa8: 0100 0075 | 0d48 8387 | 2801 0000 | 01e9 7900 | 0000 483b | 9f30 0100 | 0075 0d48 | 8387 3801 
+  0x0000020080115ac8: 0000 01e9 | 6300 0000 | 4883 bf20 | 0100 0000 | 7517 4889 | 9f20 0100 | 0048 c787 | 2801 0000 
+  0x0000020080115ae8: 0100 0000 | e942 0000 | 0048 83bf | 3001 0000 | 0075 1748 | 899f 3001 | 0000 48c7 | 8738 0100 
+  0x0000020080115b08: 0001 0000 | 00e9 2100 | 0000 e91c 
+
+  0x0000020080115b14: ;   {metadata(method data for {method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080115b14: 0000 0048 | bf78 c022 | d000 0200 | 0048 83af | 1001 0000 | 01e9 af0a | 0000 e900 | 0000 0049 
+  0x0000020080115b34: 83f8 0075 
+
+  0x0000020080115b38: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115b38: 1648 bfc8 | 5a49 d000 | 0200 0080 | 8f31 0500 | 0001 e9ea 
+
+  0x0000020080115b4c: ;   {metadata('java/nio/channels/WritableByteChannel')}
+  0x0000020080115b4c: 0000 0048 | bb60 9204 | 9000 0200 | 0041 8b78 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03fa 483b 
+  0x0000020080115b6c: 5f20 0f84 | 1b00 0000 | 483b fb0f | 8412 0000 
+
+  0x0000020080115b7c: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x0000020080115b7c: 0057 53e8 | fc18 5307 | 5f5f 83ff | 000f 848e 
+
+  0x0000020080115b8c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115b8c: 0000 0048 | bfc8 5a49 | d000 0200 | 0041 8b58 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03da 483b 
+  0x0000020080115bac: 9f48 0500 | 0075 0d48 | 8387 5005 | 0000 01e9 | 7900 0000 | 483b 9f58 | 0500 0075 | 0d48 8387 
+  0x0000020080115bcc: 6005 0000 | 01e9 6300 | 0000 4883 | bf48 0500 | 0000 7517 | 4889 9f48 | 0500 0048 | c787 5005 
+  0x0000020080115bec: 0000 0100 | 0000 e942 | 0000 0048 | 83bf 5805 | 0000 0075 | 1748 899f | 5805 0000 | 48c7 8760 
+  0x0000020080115c0c: 0500 0001 | 0000 00e9 | 2100 0000 | e91c 0000 
+
+  0x0000020080115c1c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115c1c: 0048 bfc8 | 5a49 d000 | 0200 0048 | 83af 3805 | 0000 01e9 | b209 0000 | e900 0000 | 0049 8bd0 
+  0x0000020080115c3c: ; implicit exception: dispatches to 0x00000200801165ef
+  0x0000020080115c3c: 483b 024c 
+
+  0x0000020080115c40: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115c40: 8bc2 48bf | c85a 49d0 | 0002 0000 | 458b 4008 | 49ba 0000 | 008f 0002 | 0000 4d03 | c24c 3b87 
+  0x0000020080115c60: 8005 0000 | 750d 4883 | 8788 0500 | 0001 e960 | 0000 004c | 3b87 9005 | 0000 750d | 4883 8798 
+  0x0000020080115c80: 0500 0001 | e94a 0000 | 0048 83bf | 8005 0000 | 0075 174c | 8987 8005 | 0000 48c7 | 8788 0500 
+  0x0000020080115ca0: 0001 0000 | 00e9 2900 | 0000 4883 | bf90 0500 | 0000 7517 | 4c89 8790 | 0500 0048 | c787 9805 
+  0x0000020080115cc0: 0000 0100 | 0000 e908 | 0000 0048 | 8387 7005 | 0000 014c | 8bc0 0f1f | 8000 0000 | 0048 b8ff 
+  0x0000020080115ce0: ffff ffff 
+
+  0x0000020080115ce4: ;   {virtual_call}
+  0x0000020080115ce4: ffff ffe8 
+
+  0x0000020080115ce8: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokeinterface write {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@121 (line 269)
+  0x0000020080115ce8: 9490 4607 
+
+  0x0000020080115cec: ;   {other}
+  0x0000020080115cec: 0f1f 8400 | dc14 0007 
+
+  0x0000020080115cf4: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115cf4: 48b8 c85a | 49d0 0002 | 0000 ff80 | a805 0000 | e9eb 0200 | 0049 8b87 | 0005 0000 | 4d33 d24d 
+  0x0000020080115d14: 8997 0005 | 0000 4d33 | d24d 8997 | 0805 0000 
+
+  0x0000020080115d24: ;   {oop(a 'org/apache/log/Logger'{0x0000000712139458})}
+  0x0000020080115d24: 49b8 5894 | 1312 0700 | 0000 4d8b 
+
+  0x0000020080115d30: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115d30: c848 bfc8 | 5a49 d000 | 0200 0048 | 8387 c005 
+
+  0x0000020080115d40: ;   {metadata(method data for {method} {0x00000200d0415158} 'error' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x0000020080115d40: 0000 0149 | b928 6b49 | d000 0200 | 0041 8bb9 | cc00 0000 | 83c7 0241 | 89b9 cc00 | 0000 81e7 
+  0x0000020080115d60: feff 1f00 | 83ff 000f | 8487 0800 | 004d 8bc8 
+
+  0x0000020080115d70: ;   {metadata(method data for {method} {0x00000200d0415158} 'error' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x0000020080115d70: 48bf 286b | 49d0 0002 | 0000 4883 | 8710 0100 
+
+  0x0000020080115d80: ;   {metadata(method data for {method} {0x00000200d0415088} 'isErrorEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x0000020080115d80: 0001 49b9 | f06c 49d0 | 0002 0000 | 418b b9cc | 0000 0083 | c702 4189 | b9cc 0000 | 0081 e7fe 
+  0x0000020080115da0: ff1f 0083 | ff00 0f84 | 6908 0000 
+
+  0x0000020080115dac: ; implicit exception: dispatches to 0x0000020080116636
+  0x0000020080115dac: 458b 4028 | 49c1 e003 
+
+  0x0000020080115db4: ; implicit exception: dispatches to 0x000002008011663b
+  0x0000020080115db4: 493b 004d 
+
+  0x0000020080115db8: ;   {metadata(method data for {method} {0x00000200d0415088} 'isErrorEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x0000020080115db8: 8bc8 48bf | f06c 49d0 | 0002 0000 | 4883 8710 | 0100 0001 
+
+  0x0000020080115dcc: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080115dcc: 49b9 786e | 49d0 0002 | 0000 418b | b9cc 0000 | 0083 c702 | 4189 b9cc | 0000 0081 | e7fe ff1f 
+  0x0000020080115dec: 0083 ff00 | 0f84 4a08 | 0000 458b 
+
+  0x0000020080115df8: ;   {oop(a 'org/apache/log/Priority'{0x000000071211f800})}
+  0x0000020080115df8: 400c 49b9 | 00f8 1112 | 0700 0000 
+
+  0x0000020080115e04: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080115e04: 498b f948 | ba78 6e49 | d000 0200 | 0048 8382 | 1001 0000 | 0145 8b49 | 0c45 3bc1 
+
+  0x0000020080115e20: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080115e20: 49b8 786e | 49d0 0002 | 0000 49b9 | 4801 0000 | 0000 0000 | 0f8f 0a00 | 0000 49b9 | 5801 0000 
+  0x0000020080115e40: 0000 0000 | 4b8b 3c08 | 488d 7f01 | 4b89 3c08 | 0f8f 1c00 
+
+  0x0000020080115e54: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080115e54: 0000 49b8 | 786e 49d0 | 0002 0000 | 41ff 8068 | 0100 0041 | b801 0000 | 00e9 0600 | 0000 41b8 
+  0x0000020080115e74: 0000 0000 | 4183 e001 | 4183 e001 | 4183 f800 
+
+  0x0000020080115e84: ;   {metadata(method data for {method} {0x00000200d0415158} 'error' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x0000020080115e84: 49b8 286b | 49d0 0002 | 0000 49b9 | 4801 0000 | 0000 0000 | 0f84 0a00 | 0000 49b9 | 5801 0000 
+  0x0000020080115ea4: 0000 0000 | 4b8b 3c08 | 488d 7f01 | 4b89 3c08 | 0f84 4a00 
+
+  0x0000020080115eb8: ;   {oop(a 'org/apache/log/Logger'{0x0000000712139458})}
+  0x0000020080115eb8: 0000 48ba | 5894 1312 | 0700 0000 
+
+  0x0000020080115ec4: ;   {metadata(method data for {method} {0x00000200d0415158} 'error' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x0000020080115ec4: 4c8b c249 | b928 6b49 | d000 0200 | 0049 8381 | 6801 0000 
+
+  0x0000020080115ed8: ;   {oop(a 'org/apache/log/Priority'{0x000000071211f800})}
+  0x0000020080115ed8: 0149 b800 | f811 1207 
+
+  0x0000020080115ee0: ;   {oop("Cannot send data to network connection"{0x0000000712352ce8})}
+  0x0000020080115ee0: 0000 0049 | b9e8 2c35 | 1207 0000 | 0048 8bf8 | 0f1f 8000 
+
+  0x0000020080115ef4: ;   {optimized virtual_call}
+  0x0000020080115ef4: 0000 00e8 
+
+  0x0000020080115ef8: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokespecial output {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.log.Logger::error@13 (line 229)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+  0x0000020080115ef8: 848b 4607 
+
+  0x0000020080115efc: ;   {other}
+  0x0000020080115efc: 0f1f 8400 | ec16 0008 | 488b 9424 | 9000 0000 
+
+  0x0000020080115f0c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115f0c: 48be c85a | 49d0 0002 
+
+  0x0000020080115f14: ;   {metadata('kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115f14: 0000 49ba | 506f 0090 | 0002 0000 | 4c89 9608 | 0600 0048 | 8386 1006 | 0000 0148 | 8b94 2490 
+  0x0000020080115f34: ;   {optimized virtual_call}
+  0x0000020080115f34: 0000 00e8 
+
+  0x0000020080115f38: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual notifyDisonnected {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@143 (line 274)
+  0x0000020080115f38: 448b 4607 
+
+  0x0000020080115f3c: ;   {other}
+  0x0000020080115f3c: 0f1f 8400 | 2c17 0009 | 488b b424 | a800 0000 
+
+  0x0000020080115f4c: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115f4c: 48ba c85a | 49d0 0002 | 0000 8b76 | 0849 ba00 | 0000 8f00 | 0200 0049 | 03f2 483b | b240 0600 
+  0x0000020080115f6c: 0075 0d48 | 8382 4806 | 0000 01e9 | 6000 0000 | 483b b250 | 0600 0075 | 0d48 8382 | 5806 0000 
+  0x0000020080115f8c: 01e9 4a00 | 0000 4883 | ba40 0600 | 0000 7517 | 4889 b240 | 0600 0048 | c782 4806 | 0000 0100 
+  0x0000020080115fac: 0000 e929 | 0000 0048 | 83ba 5006 | 0000 0075 | 1748 89b2 | 5006 0000 | 48c7 8258 | 0600 0001 
+  0x0000020080115fcc: 0000 00e9 | 0800 0000 | 4883 8230 | 0600 0001 | 488b 9424 | a800 0000 
+
+  0x0000020080115fe4: ;   {optimized virtual_call}
+  0x0000020080115fe4: 6666 90e8 
+
+  0x0000020080115fe8: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*invokevirtual cancel {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@148 (line 275)
+  0x0000020080115fe8: 948a 4607 
+
+  0x0000020080115fec: ;   {other}
+  0x0000020080115fec: 0f1f 8400 | dc17 000a 
+
+  0x0000020080115ff4: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080115ff4: 48be c85a | 49d0 0002 | 0000 8bbe | d000 0000 | 83c7 0289 | bed0 0000 | 0081 e7fe | 3f00 0083 
+  0x0000020080116014: ff00 0f84 | 4a06 0000 | 4d8b 9758 
+
+  0x0000020080116020: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kg.apc.perfmon.PerfMonWorker::processSenders@151 (line 278)
+                      ;   {poll}
+  0x0000020080116020: 0400 0041 
+
+  0x0000020080116024: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116024: 8502 48be | c85a 49d0 | 0002 0000 | ff86 6806 | 0000 488b | 8424 a000 | 0000 e94d 
+
+  0x0000020080116040: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116040: efff ff48 | bec8 5a49 | d000 0200 | 008b bed0 | 0000 0083 | c702 89be | d000 0000 | 81e7 fe3f 
+  0x0000020080116060: 0000 83ff | 000f 841c | 0600 004d | 8b97 5804 
+
+  0x0000020080116070: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kg.apc.perfmon.PerfMonWorker::processSenders@63 (line 259)
+                      ;   {poll}
+  0x0000020080116070: 0000 4185 
+
+  0x0000020080116074: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116074: 0248 bec8 | 5a49 d000 | 0200 00ff | 8630 0300 | 0048 8b84 | 24a0 0000 | 00e9 feee 
+
+  0x0000020080116090: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116090: ffff 48be | c85a 49d0 | 0002 0000 | 4883 8680 | 0600 0001 
+
+  0x00000200801160a4: ;   {runtime_call}
+  0x00000200801160a4: 48b8 503b | 23d8 f87f | 0000 ffd0 
+
+  0x00000200801160b0: ;   {other}
+  0x00000200801160b0: 0f1f 8400 | 0000 0000 | 488b b424 | 9800 0000 | 482b c648 | 8b94 2490 
+
+  0x00000200801160c8: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801160c8: 0000 0048 | bec8 5a49 | d000 0200 | 0048 8386 | 9006 0000 | 0148 8b94 | 2490 0000 | 0048 8b72 
+  0x00000200801160e8: 1048 8bf8 
+
+  0x00000200801160ec: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x00000200801160ec: 483b fe48 | bfc8 5a49 | d000 0200 | 0048 bba0 | 0600 0000 | 0000 000f | 8d0a 0000 | 0048 bbb0 
+  0x000002008011610c: 0600 0000 | 0000 0048 | 8b0c 1f48 | 8d49 0148 | 890c 1f0f | 8d5d 0200 
+
+  0x0000020080116124: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116124: 0048 bfc8 | 5a49 d000 | 0200 0048 | 8387 c006 
+
+  0x0000020080116134: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116134: 0000 0148 | bac8 5a49 | d000 0200 | 0048 8382 | d006 0000 | 0148 2bf0 
+
+  0x000002008011614c: ;   {static_call}
+  0x000002008011614c: 488b d6e8 
+
+  0x0000020080116150: ; ImmutableOopMap {}
+                      ;*invokestatic sleep {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@178 (line 283)
+  0x0000020080116150: ec54 0000 
+
+  0x0000020080116154: ;   {other}
+  0x0000020080116154: 0f1f 8400 | 4419 000d | e911 0200 | 0049 8b87 | 0005 0000 | 4d33 d24d | 8997 0005 | 0000 4d33 
+  0x0000020080116174: d24d 8997 | 0805 0000 
+
+  0x000002008011617c: ;   {oop(a 'org/apache/log/Logger'{0x0000000712139458})}
+  0x000002008011617c: 49b8 5894 | 1312 0700 | 0000 4d8b 
+
+  0x0000020080116188: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116188: c848 bfc8 | 5a49 d000 | 0200 0048 | 8387 f806 
+
+  0x0000020080116198: ;   {metadata(method data for {method} {0x00000200d0414a80} 'debug' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x0000020080116198: 0000 0149 | b9b8 7649 | d000 0200 | 0041 8bb9 | cc00 0000 | 83c7 0241 | 89b9 cc00 | 0000 81e7 
+  0x00000200801161b8: feff 1f00 | 83ff 000f | 84e3 0400 | 004d 8bc8 
+
+  0x00000200801161c8: ;   {metadata(method data for {method} {0x00000200d0414a80} 'debug' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x00000200801161c8: 48bf b876 | 49d0 0002 | 0000 4883 | 8710 0100 
+
+  0x00000200801161d8: ;   {metadata(method data for {method} {0x00000200d04149b0} 'isDebugEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x00000200801161d8: 0001 49b9 | 8078 49d0 | 0002 0000 | 418b b9cc | 0000 0083 | c702 4189 | b9cc 0000 | 0081 e7fe 
+  0x00000200801161f8: ff1f 0083 | ff00 0f84 | c504 0000 
+
+  0x0000020080116204: ; implicit exception: dispatches to 0x00000200801166ea
+  0x0000020080116204: 458b 4028 | 49c1 e003 
+
+  0x000002008011620c: ; implicit exception: dispatches to 0x00000200801166ef
+  0x000002008011620c: 493b 004d 
+
+  0x0000020080116210: ;   {metadata(method data for {method} {0x00000200d04149b0} 'isDebugEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x0000020080116210: 8bc8 48bf | 8078 49d0 | 0002 0000 | 4883 8710 | 0100 0001 
+
+  0x0000020080116224: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080116224: 49b9 786e | 49d0 0002 | 0000 418b | b9cc 0000 | 0083 c702 | 4189 b9cc | 0000 0081 | e7fe ff1f 
+  0x0000020080116244: 0083 ff00 | 0f84 a604 | 0000 458b 
+
+  0x0000020080116250: ;   {oop(a 'org/apache/log/Priority'{0x000000071211f728})}
+  0x0000020080116250: 400c 49b9 | 28f7 1112 | 0700 0000 
+
+  0x000002008011625c: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x000002008011625c: 498b f948 | ba78 6e49 | d000 0200 | 0048 8382 | 1001 0000 | 0145 8b49 | 0c45 3bc1 
+
+  0x0000020080116278: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080116278: 49b8 786e | 49d0 0002 | 0000 49b9 | 4801 0000 | 0000 0000 | 0f8f 0a00 | 0000 49b9 | 5801 0000 
+  0x0000020080116298: 0000 0000 | 4b8b 3c08 | 488d 7f01 | 4b89 3c08 | 0f8f 1c00 
+
+  0x00000200801162ac: ;   {metadata(method data for {method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x00000200801162ac: 0000 49b8 | 786e 49d0 | 0002 0000 | 41ff 8068 | 0100 0041 | b801 0000 | 00e9 0600 | 0000 41b8 
+  0x00000200801162cc: 0000 0000 | 4183 e001 | 4183 e001 | 4183 f800 
+
+  0x00000200801162dc: ;   {metadata(method data for {method} {0x00000200d0414a80} 'debug' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x00000200801162dc: 49b8 b876 | 49d0 0002 | 0000 49b9 | 4801 0000 | 0000 0000 | 0f84 0a00 | 0000 49b9 | 5801 0000 
+  0x00000200801162fc: 0000 0000 | 4b8b 3c08 | 488d 7f01 | 4b89 3c08 | 0f84 7000 
+
+  0x0000020080116310: ;   {oop(a 'org/apache/log/Logger'{0x0000000712139458})}
+  0x0000020080116310: 0000 48ba | 5894 1312 | 0700 0000 
+
+  0x000002008011631c: ;   {metadata(method data for {method} {0x00000200d0414a80} 'debug' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x000002008011631c: 4c8b c249 | b9b8 7649 | d000 0200 | 0049 8381 | 6801 0000 
+
+  0x0000020080116330: ;   {oop(a 'org/apache/log/Priority'{0x000000071211f728})}
+  0x0000020080116330: 0149 b828 | f711 1207 
+
+  0x0000020080116338: ;   {oop("Thread interrupted"{0x0000000712352d38})}
+  0x0000020080116338: 0000 0049 | b938 2d35 | 1207 0000 | 0048 8bf8 | 0f1f 8000 
+
+  0x000002008011634c: ;   {optimized virtual_call}
+  0x000002008011634c: 0000 00e8 
+
+  0x0000020080116350: ; ImmutableOopMap {}
+                      ;*invokespecial output {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.log.Logger::debug@13 (line 118)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+  0x0000020080116350: 2c87 4607 
+
+  0x0000020080116354: ;   {other}
+  0x0000020080116354: 0f1f 8400 | 441b 000e | 4881 c4d0 | 0000 005d 
+
+  0x0000020080116364: ;   {poll_return}
+  0x0000020080116364: 493b a750 | 0400 000f | 87a9 0300 
+
+  0x0000020080116370: ;   {metadata(method data for {method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116370: 00c3 48ba | c85a 49d0 | 0002 0000 | ff82 e006 | 0000 4881 | c4d0 0000 
+
+  0x0000020080116388: ;   {poll_return}
+  0x0000020080116388: 005d 493b | a750 0400 | 000f 8799 | 0300 00c3 
+
+  0x0000020080116398: ;   {no_reloc}
+  0x0000020080116398: e9b8 0300 | 0000 0000 | 0000 e9b8 | 0300 0048 
+
+  0x00000200801163a8: ;   {metadata(method data for {method} {0x00000200d02030a0} 'ensureValid' '()V' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x00000200801163a8: 8bd0 49b8 | 28cc 22d0 | 0002 0000 | 4983 8068 | 0100 0001 | 488b d048 | 8984 24b0 
+
+  0x00000200801163c4: ;   {optimized virtual_call}
+  0x00000200801163c4: 0000 00e8 
+
+  0x00000200801163c8: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop [176]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectionKeyImpl::ensureValid@11 (line 75)
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x00000200801163c8: b486 4607 
+
+  0x00000200801163cc: ;   {other}
+  0x00000200801163cc: 0f1f 8400 | bc1b 000f | 488b 8424 | b000 0000 | e9ce 0300 | 0048 89b4 | 24c0 0000 | 000f 1f80 
+  0x00000200801163ec: 0000 0000 
+
+  0x00000200801163f0: ;   {no_reloc}
+  0x00000200801163f0: e986 0300 | 0000 0000 | 0000 e986 | 0300 0048 
+
+  0x0000020080116400: ;   {metadata(method data for {method} {0x00000200d00890a0} 'ensureOpen' '()V' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080116400: 8bd0 48b9 | c0b3 22d0 | 0002 0000 | 4883 8168 | 0100 0001 | 488b d048 | 8984 24b8 
+
+  0x000002008011641c: ;   {optimized virtual_call}
+  0x000002008011641c: 0000 00e8 
+
+  0x0000020080116420: ; ImmutableOopMap {[144]=Oop [184]=Oop [192]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectorImpl::ensureOpen@11 (line 81)
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x0000020080116420: 5c86 4607 
+
+  0x0000020080116424: ;   {other}
+  0x0000020080116424: 0f1f 8400 | 141c 0010 | 488b 8424 | b800 0000 | e976 0300 
+
+  0x0000020080116438: ;   {metadata({method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116438: 0049 bae8 | f841 d000 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000020080116450: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116450: e82b 3753 
+
+  0x0000020080116454: ; ImmutableOopMap {rdx=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@-1 (line 246)
+  0x0000020080116454: 07e9 17e8 
+
+  0x0000020080116458: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020080116458: ffff e821 
+
+  0x000002008011645c: ; ImmutableOopMap {rdx=Oop rsi=Oop [144]=Oop }
+                      ;*invokevirtual select {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@8 (line 246)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000002008011645c: e652 07e8 
+
+  0x0000020080116460: ; ImmutableOopMap {rdx=Oop rsi=Oop [144]=Oop }
+                      ;*invokevirtual selectedKeys {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x0000020080116460: 1ce6 5207 
+
+  0x0000020080116464: ;   {metadata({method} {0x00000200d0089210} 'selectedKeys' '()Ljava/util/Set;' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080116464: 49ba 0892 | 08d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116478: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116478: ffff ffe8 
+
+  0x000002008011647c: ; ImmutableOopMap {rdx=Oop rsi=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@-1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x000002008011647c: 0037 5307 | e934 e9ff 
+
+  0x0000020080116484: ;   {metadata({method} {0x00000200d00890a0} 'ensureOpen' '()V' in 'sun/nio/ch/SelectorImpl')}
+  0x0000020080116484: ff49 ba98 | 9008 d000 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000002008011649c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002008011649c: e8df 3653 
+
+  0x00000200801164a0: ; ImmutableOopMap {rdx=Oop rsi=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectorImpl::ensureOpen@-1 (line 80)
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x00000200801164a0: 07e9 50e9 
+
+  0x00000200801164a4: ;   {metadata({method} {0x00000200d008b148} 'isOpen' '()Z' in 'java/nio/channels/spi/AbstractSelector')}
+  0x00000200801164a4: ffff 49ba | 40b1 08d0 | 0002 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x00000200801164bc: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000200801164bc: ffe8 be36 
+
+  0x00000200801164c0: ; ImmutableOopMap {rdx=Oop rsi=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - java.nio.channels.spi.AbstractSelector::isOpen@-1 (line 151)
+                      ; - sun.nio.ch.SelectorImpl::ensureOpen@1 (line 80)
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x00000200801164c0: 5307 e96c 
+
+  0x00000200801164c4: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801164c4: e9ff ffe8 
+
+  0x00000200801164c8: ; ImmutableOopMap {rsi=Oop [144]=Oop }
+                      ;*invokeinterface iterator {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@23 (line 252)
+  0x00000200801164c8: b4e5 5207 
+
+  0x00000200801164cc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801164cc: e8af e552 
+
+  0x00000200801164d0: ; ImmutableOopMap {rax=Oop [144]=Oop [160]=Oop }
+                      ;*invokeinterface hasNext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@30 (line 253)
+  0x00000200801164d0: 0748 8904 
+
+  0x00000200801164d4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000200801164d4: 24e8 a609 
+
+  0x00000200801164d8: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@44 (line 254)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801164d8: 5307 e8a1 
+
+  0x00000200801164dc: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual isValid {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@57 (line 258)
+                      ;   {metadata({method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x00000200801164dc: e552 0749 | bac0 4820 | d000 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x00000200801164f4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000200801164f4: ffff e885 
+
+  0x00000200801164f8: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - java.nio.channels.spi.AbstractSelectionKey::isValid@-1 (line 67)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@57 (line 258)
+  0x00000200801164f8: 3653 07e9 | 2eee ffff 
+
+  0x0000020080116500: ;   {metadata({method} {0x00000200d0205888} 'isWritable' '()Z' in 'java/nio/channels/SelectionKey')}
+  0x0000020080116500: 49ba 8058 | 20d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116514: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116514: ffff ffe8 
+
+  0x0000020080116518: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - java.nio.channels.SelectionKey::isWritable@-1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x0000020080116518: 6436 5307 | e9eb eeff 
+
+  0x0000020080116520: ;   {metadata({method} {0x00000200d02037c8} 'readyOps' '()I' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080116520: ff49 bac0 | 3720 d000 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000020080116538: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116538: e843 3653 
+
+  0x000002008011653c: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@-1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x000002008011653c: 07e9 09ef 
+
+  0x0000020080116540: ;   {metadata({method} {0x00000200d02030a0} 'ensureValid' '()V' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080116540: ffff 49ba | 9830 20d0 | 0002 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000020080116558: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116558: ffe8 2236 
+
+  0x000002008011655c: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectionKeyImpl::ensureValid@-1 (line 74)
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x000002008011655c: 5307 e927 
+
+  0x0000020080116560: ;   {metadata({method} {0x00000200d02048c8} 'isValid' '()Z' in 'java/nio/channels/spi/AbstractSelectionKey')}
+  0x0000020080116560: efff ff49 | bac0 4820 | d000 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000020080116578: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116578: ffff e801 
+
+  0x000002008011657c: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - java.nio.channels.spi.AbstractSelectionKey::isValid@-1 (line 67)
+                      ; - sun.nio.ch.SelectionKeyImpl::ensureValid@1 (line 74)
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x000002008011657c: 3653 07e9 | 45ef ffff 
+
+  0x0000020080116584: ;   {metadata({method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x0000020080116584: 49ba b832 | 20d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116598: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116598: ffff ffe8 
+
+  0x000002008011659c: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectionKeyImpl::channel@-1 (line 88)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@76 (line 264)
+  0x000002008011659c: e035 5307 | e9a4 f0ff | ff4c 8904 
+
+  0x00000200801165a8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000200801165a8: 24e8 d208 
+
+  0x00000200801165ac: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectionKeyImpl::channel@4 (line 88)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@76 (line 264)
+  0x00000200801165ac: 5307 4889 
+
+  0x00000200801165b0: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000200801165b0: 1424 e8c9 
+
+  0x00000200801165b4: ; ImmutableOopMap {rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@99 (line 267)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801165b4: 0853 07e8 
+
+  0x00000200801165b8: ; ImmutableOopMap {rsi=Oop rdx=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual getMetricsLine {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@106 (line 268)
+  0x00000200801165b8: c4e4 5207 
+
+  0x00000200801165bc: ;   {metadata({method} {0x00000200d02032c0} 'channel' '()Ljava/nio/channels/SelectableChannel;' in 'sun/nio/ch/SelectionKeyImpl')}
+  0x00000200801165bc: 49ba b832 | 20d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00000200801165d0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000200801165d0: ffff ffe8 
+
+  0x00000200801165d4: ; ImmutableOopMap {rax=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - sun.nio.ch.SelectionKeyImpl::channel@-1 (line 88)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@113 (line 269)
+  0x00000200801165d4: a835 5307 | e95b f4ff | ff4c 8904 
+
+  0x00000200801165e0: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000200801165e0: 24e8 9a08 
+
+  0x00000200801165e4: ; ImmutableOopMap {rax=Oop rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectionKeyImpl::channel@4 (line 88)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@113 (line 269)
+  0x00000200801165e4: 5307 4c89 
+
+  0x00000200801165e8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00000200801165e8: 0424 e891 
+
+  0x00000200801165ec: ; ImmutableOopMap {rax=Oop rsi=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@116 (line 269)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801165ec: 0853 07e8 
+
+  0x00000200801165f0: ; ImmutableOopMap {rax=Oop rsi=Oop rdx=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokeinterface write {reexecute=0 rethrow=0 return_oop=0}
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@121 (line 269)
+  0x00000200801165f0: 8ce4 5207 
+
+  0x00000200801165f4: ;   {metadata({method} {0x00000200d0415158} 'error' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x00000200801165f4: 49ba 5051 | 41d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116608: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116608: ffff ffe8 
+
+  0x000002008011660c: ; ImmutableOopMap {rax=Oop r8=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Logger::error@-1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+  0x000002008011660c: 7035 5307 | e958 f7ff 
+
+  0x0000020080116614: ;   {metadata({method} {0x00000200d0415088} 'isErrorEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x0000020080116614: ff49 ba80 | 5041 d000 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000002008011662c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002008011662c: e84f 3553 
+
+  0x0000020080116630: ; ImmutableOopMap {rax=Oop r8=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Logger::isErrorEnabled@-1 (line 216)
+                      ; - org.apache.log.Logger::error@1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+  0x0000020080116630: 07e9 76f7 
+
+  0x0000020080116634: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020080116634: ffff e845 
+
+  0x0000020080116638: ; ImmutableOopMap {rax=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*getfield m_priority {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.log.Logger::isErrorEnabled@1 (line 216)
+                      ; - org.apache.log.Logger::error@1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020080116638: e452 07e8 
+
+  0x000002008011663c: ; ImmutableOopMap {rax=Oop r8=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual isLowerOrEqual {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.log.Logger::isErrorEnabled@7 (line 216)
+                      ; - org.apache.log.Logger::error@1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+  0x000002008011663c: 40e4 5207 
+
+  0x0000020080116640: ;   {metadata({method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x0000020080116640: 49ba a086 | 41d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116654: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116654: ffff ffe8 
+
+  0x0000020080116658: ; ImmutableOopMap {rax=Oop r8=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Priority::isLowerOrEqual@-1 (line 179)
+                      ; - org.apache.log.Logger::isErrorEnabled@7 (line 216)
+                      ; - org.apache.log.Logger::error@1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+  0x0000020080116658: 2435 5307 | e995 f7ff 
+
+  0x0000020080116660: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020080116660: ffe8 1ae4 
+
+  0x0000020080116664: ; ImmutableOopMap {rax=Oop [144]=Oop [160]=Oop [168]=Oop }
+                      ;*getfield m_priority {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.log.Priority::getValue@1 (line 136)
+                      ; - org.apache.log.Priority::isLowerOrEqual@5 (line 179)
+                      ; - org.apache.log.Logger::isErrorEnabled@7 (line 216)
+                      ; - org.apache.log.Logger::error@1 (line 227)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@139 (line 273)
+                      ;   {metadata({method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116664: 5207 49ba | e8f8 41d0 | 0002 0000 | 4c89 5424 | 0848 c704 | 2497 0000 
+
+  0x000002008011667c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002008011667c: 00e8 fe34 
+
+  0x0000020080116680: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kg.apc.perfmon.PerfMonWorker::processSenders@151 (line 278)
+  0x0000020080116680: 5307 e995 
+
+  0x0000020080116684: ;   {metadata({method} {0x00000200d041f8f0} 'processSenders' '()V' in 'kg/apc/perfmon/PerfMonWorker')}
+  0x0000020080116684: f9ff ff49 | bae8 f841 | d000 0200 | 004c 8954 | 2408 48c7 | 0424 3f00 
+
+  0x000002008011669c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002008011669c: 0000 e8dd 
+
+  0x00000200801166a0: ; ImmutableOopMap {[144]=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) kg.apc.perfmon.PerfMonWorker::processSenders@63 (line 259)
+  0x00000200801166a0: 3453 07e9 | c3f9 ffff 
+
+  0x00000200801166a8: ;   {metadata({method} {0x00000200d0414a80} 'debug' '(Ljava/lang/String;Ljava/lang/Throwable;)V' in 'org/apache/log/Logger')}
+  0x00000200801166a8: 49ba 784a | 41d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00000200801166bc: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000200801166bc: ffff ffe8 
+
+  0x00000200801166c0: ; ImmutableOopMap {rax=Oop r8=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Logger::debug@-1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+  0x00000200801166c0: bc34 5307 | e9fc faff 
+
+  0x00000200801166c8: ;   {metadata({method} {0x00000200d04149b0} 'isDebugEnabled' '()Z' in 'org/apache/log/Logger')}
+  0x00000200801166c8: ff49 baa8 | 4941 d000 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00000200801166e0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00000200801166e0: e89b 3453 
+
+  0x00000200801166e4: ; ImmutableOopMap {rax=Oop r8=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Logger::isDebugEnabled@-1 (line 105)
+                      ; - org.apache.log.Logger::debug@1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+  0x00000200801166e4: 07e9 1afb 
+
+  0x00000200801166e8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801166e8: ffff e891 
+
+  0x00000200801166ec: ; ImmutableOopMap {rax=Oop }
+                      ;*getfield m_priority {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.log.Logger::isDebugEnabled@1 (line 105)
+                      ; - org.apache.log.Logger::debug@1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00000200801166ec: e352 07e8 
+
+  0x00000200801166f0: ; ImmutableOopMap {rax=Oop r8=Oop }
+                      ;*invokevirtual isLowerOrEqual {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.log.Logger::isDebugEnabled@7 (line 105)
+                      ; - org.apache.log.Logger::debug@1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+  0x00000200801166f0: 8ce3 5207 
+
+  0x00000200801166f4: ;   {metadata({method} {0x00000200d04186a8} 'isLowerOrEqual' '(Lorg/apache/log/Priority;)Z' in 'org/apache/log/Priority')}
+  0x00000200801166f4: 49ba a086 | 41d0 0002 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000020080116708: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000020080116708: ffff ffe8 
+
+  0x000002008011670c: ; ImmutableOopMap {rax=Oop r8=Oop }
+                      ;*synchronization entry
+                      ; - org.apache.log.Priority::isLowerOrEqual@-1 (line 179)
+                      ; - org.apache.log.Logger::isDebugEnabled@7 (line 105)
+                      ; - org.apache.log.Logger::debug@1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+  0x000002008011670c: 7034 5307 | e939 fbff 
+
+  0x0000020080116714: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020080116714: ffe8 66e3 
+
+  0x0000020080116718: ; ImmutableOopMap {rax=Oop }
+                      ;*getfield m_priority {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.log.Priority::getValue@1 (line 136)
+                      ; - org.apache.log.Priority::isLowerOrEqual@5 (line 179)
+                      ; - org.apache.log.Logger::isDebugEnabled@7 (line 105)
+                      ; - org.apache.log.Logger::debug@1 (line 116)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@193 (line 285)
+                      ;   {internal_word}
+  0x0000020080116718: 5207 49ba | 6463 1180 | 0002 0000 | 4d89 9768 
+
+  0x0000020080116728: ;   {runtime_call SafepointBlob}
+  0x0000020080116728: 0400 00e9 | d0ef 4607 
+
+  0x0000020080116730: ;   {internal_word}
+  0x0000020080116730: 49ba 8a63 | 1180 0002 | 0000 4d89 | 9768 0400 
+
+  0x0000020080116740: ;   {runtime_call SafepointBlob}
+  0x0000020080116740: 00e9 baef 
+
+  0x0000020080116744: ;   {metadata(nullptr)}
+  0x0000020080116744: 4607 48ba | 0000 0000 | 0000 0000 | b800 0f05 
+
+  0x0000020080116754: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x0000020080116754: 0ae8 a623 
+
+  0x0000020080116758: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) sun.nio.ch.SelectionKeyImpl::ensureValid@7 (line 75)
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x0000020080116758: 5307 e939 | fcff ff48 
+
+  0x0000020080116760: ;   {runtime_call new_instance Runtime1 stub}
+  0x0000020080116760: 8bd2 e819 
+
+  0x0000020080116764: ; ImmutableOopMap {[144]=Oop [160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectionKeyImpl::ensureValid@7 (line 75)
+                      ; - sun.nio.ch.SelectionKeyImpl::readyOps@1 (line 138)
+                      ; - java.nio.channels.SelectionKey::isWritable@1 (line 378)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@68 (line 262)
+  0x0000020080116764: e952 07e9 | 3bfc ffff 
+
+  0x000002008011676c: ;   {metadata(nullptr)}
+  0x000002008011676c: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x0000020080116778: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x0000020080116778: 0f05 0ae8 
+
+  0x000002008011677c: ; ImmutableOopMap {[144]=Oop [192]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) sun.nio.ch.SelectorImpl::ensureOpen@7 (line 81)
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x000002008011677c: 8023 5307 | e96b fcff | ff48 8bd2 
+
+  0x0000020080116788: ;   {runtime_call new_instance Runtime1 stub}
+  0x0000020080116788: e8f3 e852 
+
+  0x000002008011678c: ; ImmutableOopMap {[144]=Oop [192]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - sun.nio.ch.SelectorImpl::ensureOpen@7 (line 81)
+                      ; - sun.nio.ch.SelectorImpl::selectedKeys@1 (line 92)
+                      ; - kg.apc.perfmon.PerfMonWorker::processSenders@20 (line 252)
+  0x000002008011678c: 07e9 6dfc | ffff 498b | 8700 0500 | 0049 c787 | 0005 0000 | 0000 0000 | 49c7 8708 | 0500 0000 
+  0x00000200801167ac: 0000 0048 | 81c4 d000 
+
+  0x00000200801167b4: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00000200801167b4: 0000 5de9 | c4d3 5207 | f4f4 f4f4 
+[Stub Code]
+  0x00000200801167c0: ;   {no_reloc}
+  0x00000200801167c0: 0f1f 4400 
+
+  0x00000200801167c4: ;   {static_stub}
+  0x00000200801167c4: 0048 bb00 | 0000 0000 
+
+  0x00000200801167cc: ;   {runtime_call}
+  0x00000200801167cc: 0000 00e9 | fbff ffff 
+
+  0x00000200801167d4: ;   {static_stub}
+  0x00000200801167d4: 9048 bb00 | 0000 0000 
+
+  0x00000200801167dc: ;   {runtime_call}
+  0x00000200801167dc: 0000 00e9 | fbff ffff 
+
+  0x00000200801167e4: ;   {static_stub}
+  0x00000200801167e4: 9048 bb00 | 0000 0000 
+
+  0x00000200801167ec: ;   {runtime_call}
+  0x00000200801167ec: 0000 00e9 | fbff ffff 
+
+  0x00000200801167f4: ;   {static_stub}
+  0x00000200801167f4: 9048 bb00 | 0000 0000 
+
+  0x00000200801167fc: ;   {runtime_call}
+  0x00000200801167fc: 0000 00e9 | fbff ffff 
+
+  0x0000020080116804: ;   {static_stub}
+  0x0000020080116804: 9048 bb00 | 0000 0000 
+
+  0x000002008011680c: ;   {runtime_call}
+  0x000002008011680c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116814: ;   {static_stub}
+  0x0000020080116814: 9048 bb30 | 4149 d000 
+
+  0x000002008011681c: ;   {runtime_call I2C/C2I adapters}
+  0x000002008011681c: 0200 00e9 | 3fcc 4607 
+
+  0x0000020080116824: ;   {static_stub}
+  0x0000020080116824: 9048 bb00 | 0000 0000 
+
+  0x000002008011682c: ;   {runtime_call}
+  0x000002008011682c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116834: ;   {static_stub}
+  0x0000020080116834: 9048 bb00 | 0000 0000 
+
+  0x000002008011683c: ;   {runtime_call}
+  0x000002008011683c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116844: ;   {static_stub}
+  0x0000020080116844: 9048 bb00 | 0000 0000 
+
+  0x000002008011684c: ;   {runtime_call}
+  0x000002008011684c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116854: ;   {static_stub}
+  0x0000020080116854: 9048 bb00 | 0000 0000 
+
+  0x000002008011685c: ;   {runtime_call}
+  0x000002008011685c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116864: ;   {static_stub}
+  0x0000020080116864: 9048 bb00 | 0000 0000 
+
+  0x000002008011686c: ;   {runtime_call}
+  0x000002008011686c: 0000 00e9 | fbff ffff 
+
+  0x0000020080116874: ;   {static_stub}
+  0x0000020080116874: 48bb 50fa | 41d0 0002 
+
+  0x000002008011687c: ;   {runtime_call I2C/C2I adapters}
+  0x000002008011687c: 0000 e964 
+
+  0x0000020080116880: ;   {static_stub}
+  0x0000020080116880: d946 0748 | bb00 0000 | 0000 0000 
+
+  0x000002008011688c: ;   {runtime_call}
+  0x000002008011688c: 00e9 fbff 
+
+  0x0000020080116890: ;   {static_stub}
+  0x0000020080116890: ffff 48bb | 485d 438f | 0002 0000 
+
+  0x000002008011689c: ;   {runtime_call I2C/C2I adapters}
+  0x000002008011689c: e9c2 5e44 
+
+  0x00000200801168a0: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00000200801168a0: 07e8 daff 
+
+  0x00000200801168a4: ;   {external_word}
+  0x00000200801168a4: 5207 48b9 | 0028 51d8 | f87f 0000 | 4883 e4f0 
+
+  0x00000200801168b4: ;   {runtime_call}
+  0x00000200801168b4: 48b8 e00f | 19d8 f87f | 0000 ffd0 
+
+  0x00000200801168c0: ;   {section_word}
+  0x00000200801168c0: f449 bac1 | 6811 8000 | 0200 0041 
+
+  0x00000200801168cc: ;   {runtime_call DeoptimizationBlob}
+  0x00000200801168cc: 52e9 cee0 | 4607 f4f4 | f4f4 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000200fe4c8c10, length=12, elements={
+0x00000200eb7165b0, 0x00000200fda4ad50, 0x00000200fda4bc70, 0x00000200fda4da40,
+0x00000200fda509e0, 0x00000200fda53950, 0x00000200fda526b0, 0x00000200fda63050,
+0x00000200fda69b20, 0x00000200fdcdd470, 0x00000200fdcdef00, 0x00000200fe3615f0
+}
+
+Java Threads: ( => current thread )
+  0x00000200eb7165b0 JavaThread "main"                              [_thread_in_native, id=4168, stack(0x000000ede0a00000,0x000000ede0b00000) (1024K)]
+  0x00000200fda4ad50 JavaThread "Reference Handler"          daemon [_thread_blocked, id=21768, stack(0x000000ede1200000,0x000000ede1300000) (1024K)]
+  0x00000200fda4bc70 JavaThread "Finalizer"                  daemon [_thread_blocked, id=18564, stack(0x000000ede1300000,0x000000ede1400000) (1024K)]
+  0x00000200fda4da40 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=23476, stack(0x000000ede1400000,0x000000ede1500000) (1024K)]
+  0x00000200fda509e0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=8264, stack(0x000000ede1500000,0x000000ede1600000) (1024K)]
+  0x00000200fda53950 JavaThread "Service Thread"             daemon [_thread_blocked, id=20292, stack(0x000000ede1600000,0x000000ede1700000) (1024K)]
+  0x00000200fda526b0 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=30108, stack(0x000000ede1700000,0x000000ede1800000) (1024K)]
+  0x00000200fda63050 JavaThread "C2 CompilerThread0"         daemon [_thread_blocked, id=12692, stack(0x000000ede1800000,0x000000ede1900000) (1024K)]
+  0x00000200fda69b20 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=24716, stack(0x000000ede1900000,0x000000ede1a00000) (1024K)]
+  0x00000200fdcdd470 JavaThread "Notification Thread"        daemon [_thread_blocked, id=14092, stack(0x000000ede1a00000,0x000000ede1b00000) (1024K)]
+  0x00000200fdcdef00 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=28936, stack(0x000000ede1b00000,0x000000ede1c00000) (1024K)]
+=>0x00000200fe3615f0 JavaThread "Thread-0"                          [_thread_in_native, id=2284, stack(0x000000ede1c00000,0x000000ede1d00000) (1024K)]
+Total: 12
+
+Other Threads:
+  0x00000200fda2a1d0 VMThread "VM Thread"                           [id=1028, stack(0x000000ede1100000,0x000000ede1200000) (1024K)]
+  0x00000200fda11b10 WatcherThread "VM Periodic Task Thread"        [id=25432, stack(0x000000ede1000000,0x000000ede1100000) (1024K)]
+  0x00000200ed9ac610 WorkerThread "GC Thread#0"                     [id=32588, stack(0x000000ede0b00000,0x000000ede0c00000) (1024K)]
+  0x00000200ed9bd380 ConcurrentGCThread "G1 Main Marker"            [id=32696, stack(0x000000ede0c00000,0x000000ede0d00000) (1024K)]
+  0x00000200ed9be030 WorkerThread "G1 Conc#0"                       [id=33952, stack(0x000000ede0d00000,0x000000ede0e00000) (1024K)]
+  0x00000200eda0e730 ConcurrentGCThread "G1 Refine#0"               [id=27340, stack(0x000000ede0e00000,0x000000ede0f00000) (1024K)]
+  0x00000200fd8e7450 ConcurrentGCThread "G1 Service"                [id=20004, stack(0x000000ede0f00000,0x000000ede1000000) (1024K)]
+Total: 7
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000702600000, size: 4058 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000002008f000000-0x000002008fc90000-0x000002008fc90000), size 13172736, SharedBaseAddress: 0x000002008f000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000020090000000-0x00000200d0000000, reserved size: 1073741824
+Narrow klass base: 0x000002008f000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+ CPUs: 8 total, 8 available
+ Memory: 16227M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 2M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 254M
+ Heap Max Capacity: 4058M
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 260096K, used 8192K [0x0000000702600000, 0x0000000800000000)
+  region size 2048K, 5 young (10240K), 0 survivors (0K)
+ Metaspace       used 3295K, committed 3456K, reserved 1114112K
+  class space    used 336K, committed 384K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000702600000, 0x0000000702600000, 0x0000000702800000|  0%| F|  |TAMS 0x0000000702600000| PB 0x0000000702600000| Untracked 
+|   1|0x0000000702800000, 0x0000000702800000, 0x0000000702a00000|  0%| F|  |TAMS 0x0000000702800000| PB 0x0000000702800000| Untracked 
+|   2|0x0000000702a00000, 0x0000000702a00000, 0x0000000702c00000|  0%| F|  |TAMS 0x0000000702a00000| PB 0x0000000702a00000| Untracked 
+|   3|0x0000000702c00000, 0x0000000702c00000, 0x0000000702e00000|  0%| F|  |TAMS 0x0000000702c00000| PB 0x0000000702c00000| Untracked 
+|   4|0x0000000702e00000, 0x0000000702e00000, 0x0000000703000000|  0%| F|  |TAMS 0x0000000702e00000| PB 0x0000000702e00000| Untracked 
+|   5|0x0000000703000000, 0x0000000703000000, 0x0000000703200000|  0%| F|  |TAMS 0x0000000703000000| PB 0x0000000703000000| Untracked 
+|   6|0x0000000703200000, 0x0000000703200000, 0x0000000703400000|  0%| F|  |TAMS 0x0000000703200000| PB 0x0000000703200000| Untracked 
+|   7|0x0000000703400000, 0x0000000703400000, 0x0000000703600000|  0%| F|  |TAMS 0x0000000703400000| PB 0x0000000703400000| Untracked 
+|   8|0x0000000703600000, 0x0000000703600000, 0x0000000703800000|  0%| F|  |TAMS 0x0000000703600000| PB 0x0000000703600000| Untracked 
+|   9|0x0000000703800000, 0x0000000703800000, 0x0000000703a00000|  0%| F|  |TAMS 0x0000000703800000| PB 0x0000000703800000| Untracked 
+|  10|0x0000000703a00000, 0x0000000703a00000, 0x0000000703c00000|  0%| F|  |TAMS 0x0000000703a00000| PB 0x0000000703a00000| Untracked 
+|  11|0x0000000703c00000, 0x0000000703c00000, 0x0000000703e00000|  0%| F|  |TAMS 0x0000000703c00000| PB 0x0000000703c00000| Untracked 
+|  12|0x0000000703e00000, 0x0000000703e00000, 0x0000000704000000|  0%| F|  |TAMS 0x0000000703e00000| PB 0x0000000703e00000| Untracked 
+|  13|0x0000000704000000, 0x0000000704000000, 0x0000000704200000|  0%| F|  |TAMS 0x0000000704000000| PB 0x0000000704000000| Untracked 
+|  14|0x0000000704200000, 0x0000000704200000, 0x0000000704400000|  0%| F|  |TAMS 0x0000000704200000| PB 0x0000000704200000| Untracked 
+|  15|0x0000000704400000, 0x0000000704400000, 0x0000000704600000|  0%| F|  |TAMS 0x0000000704400000| PB 0x0000000704400000| Untracked 
+|  16|0x0000000704600000, 0x0000000704600000, 0x0000000704800000|  0%| F|  |TAMS 0x0000000704600000| PB 0x0000000704600000| Untracked 
+|  17|0x0000000704800000, 0x0000000704800000, 0x0000000704a00000|  0%| F|  |TAMS 0x0000000704800000| PB 0x0000000704800000| Untracked 
+|  18|0x0000000704a00000, 0x0000000704a00000, 0x0000000704c00000|  0%| F|  |TAMS 0x0000000704a00000| PB 0x0000000704a00000| Untracked 
+|  19|0x0000000704c00000, 0x0000000704c00000, 0x0000000704e00000|  0%| F|  |TAMS 0x0000000704c00000| PB 0x0000000704c00000| Untracked 
+|  20|0x0000000704e00000, 0x0000000704e00000, 0x0000000705000000|  0%| F|  |TAMS 0x0000000704e00000| PB 0x0000000704e00000| Untracked 
+|  21|0x0000000705000000, 0x0000000705000000, 0x0000000705200000|  0%| F|  |TAMS 0x0000000705000000| PB 0x0000000705000000| Untracked 
+|  22|0x0000000705200000, 0x0000000705200000, 0x0000000705400000|  0%| F|  |TAMS 0x0000000705200000| PB 0x0000000705200000| Untracked 
+|  23|0x0000000705400000, 0x0000000705400000, 0x0000000705600000|  0%| F|  |TAMS 0x0000000705400000| PB 0x0000000705400000| Untracked 
+|  24|0x0000000705600000, 0x0000000705600000, 0x0000000705800000|  0%| F|  |TAMS 0x0000000705600000| PB 0x0000000705600000| Untracked 
+|  25|0x0000000705800000, 0x0000000705800000, 0x0000000705a00000|  0%| F|  |TAMS 0x0000000705800000| PB 0x0000000705800000| Untracked 
+|  26|0x0000000705a00000, 0x0000000705a00000, 0x0000000705c00000|  0%| F|  |TAMS 0x0000000705a00000| PB 0x0000000705a00000| Untracked 
+|  27|0x0000000705c00000, 0x0000000705c00000, 0x0000000705e00000|  0%| F|  |TAMS 0x0000000705c00000| PB 0x0000000705c00000| Untracked 
+|  28|0x0000000705e00000, 0x0000000705e00000, 0x0000000706000000|  0%| F|  |TAMS 0x0000000705e00000| PB 0x0000000705e00000| Untracked 
+|  29|0x0000000706000000, 0x0000000706000000, 0x0000000706200000|  0%| F|  |TAMS 0x0000000706000000| PB 0x0000000706000000| Untracked 
+|  30|0x0000000706200000, 0x0000000706200000, 0x0000000706400000|  0%| F|  |TAMS 0x0000000706200000| PB 0x0000000706200000| Untracked 
+|  31|0x0000000706400000, 0x0000000706400000, 0x0000000706600000|  0%| F|  |TAMS 0x0000000706400000| PB 0x0000000706400000| Untracked 
+|  32|0x0000000706600000, 0x0000000706600000, 0x0000000706800000|  0%| F|  |TAMS 0x0000000706600000| PB 0x0000000706600000| Untracked 
+|  33|0x0000000706800000, 0x0000000706800000, 0x0000000706a00000|  0%| F|  |TAMS 0x0000000706800000| PB 0x0000000706800000| Untracked 
+|  34|0x0000000706a00000, 0x0000000706a00000, 0x0000000706c00000|  0%| F|  |TAMS 0x0000000706a00000| PB 0x0000000706a00000| Untracked 
+|  35|0x0000000706c00000, 0x0000000706c00000, 0x0000000706e00000|  0%| F|  |TAMS 0x0000000706c00000| PB 0x0000000706c00000| Untracked 
+|  36|0x0000000706e00000, 0x0000000706e00000, 0x0000000707000000|  0%| F|  |TAMS 0x0000000706e00000| PB 0x0000000706e00000| Untracked 
+|  37|0x0000000707000000, 0x0000000707000000, 0x0000000707200000|  0%| F|  |TAMS 0x0000000707000000| PB 0x0000000707000000| Untracked 
+|  38|0x0000000707200000, 0x0000000707200000, 0x0000000707400000|  0%| F|  |TAMS 0x0000000707200000| PB 0x0000000707200000| Untracked 
+|  39|0x0000000707400000, 0x0000000707400000, 0x0000000707600000|  0%| F|  |TAMS 0x0000000707400000| PB 0x0000000707400000| Untracked 
+|  40|0x0000000707600000, 0x0000000707600000, 0x0000000707800000|  0%| F|  |TAMS 0x0000000707600000| PB 0x0000000707600000| Untracked 
+|  41|0x0000000707800000, 0x0000000707800000, 0x0000000707a00000|  0%| F|  |TAMS 0x0000000707800000| PB 0x0000000707800000| Untracked 
+|  42|0x0000000707a00000, 0x0000000707a00000, 0x0000000707c00000|  0%| F|  |TAMS 0x0000000707a00000| PB 0x0000000707a00000| Untracked 
+|  43|0x0000000707c00000, 0x0000000707c00000, 0x0000000707e00000|  0%| F|  |TAMS 0x0000000707c00000| PB 0x0000000707c00000| Untracked 
+|  44|0x0000000707e00000, 0x0000000707e00000, 0x0000000708000000|  0%| F|  |TAMS 0x0000000707e00000| PB 0x0000000707e00000| Untracked 
+|  45|0x0000000708000000, 0x0000000708000000, 0x0000000708200000|  0%| F|  |TAMS 0x0000000708000000| PB 0x0000000708000000| Untracked 
+|  46|0x0000000708200000, 0x0000000708200000, 0x0000000708400000|  0%| F|  |TAMS 0x0000000708200000| PB 0x0000000708200000| Untracked 
+|  47|0x0000000708400000, 0x0000000708400000, 0x0000000708600000|  0%| F|  |TAMS 0x0000000708400000| PB 0x0000000708400000| Untracked 
+|  48|0x0000000708600000, 0x0000000708600000, 0x0000000708800000|  0%| F|  |TAMS 0x0000000708600000| PB 0x0000000708600000| Untracked 
+|  49|0x0000000708800000, 0x0000000708800000, 0x0000000708a00000|  0%| F|  |TAMS 0x0000000708800000| PB 0x0000000708800000| Untracked 
+|  50|0x0000000708a00000, 0x0000000708a00000, 0x0000000708c00000|  0%| F|  |TAMS 0x0000000708a00000| PB 0x0000000708a00000| Untracked 
+|  51|0x0000000708c00000, 0x0000000708c00000, 0x0000000708e00000|  0%| F|  |TAMS 0x0000000708c00000| PB 0x0000000708c00000| Untracked 
+|  52|0x0000000708e00000, 0x0000000708e00000, 0x0000000709000000|  0%| F|  |TAMS 0x0000000708e00000| PB 0x0000000708e00000| Untracked 
+|  53|0x0000000709000000, 0x0000000709000000, 0x0000000709200000|  0%| F|  |TAMS 0x0000000709000000| PB 0x0000000709000000| Untracked 
+|  54|0x0000000709200000, 0x0000000709200000, 0x0000000709400000|  0%| F|  |TAMS 0x0000000709200000| PB 0x0000000709200000| Untracked 
+|  55|0x0000000709400000, 0x0000000709400000, 0x0000000709600000|  0%| F|  |TAMS 0x0000000709400000| PB 0x0000000709400000| Untracked 
+|  56|0x0000000709600000, 0x0000000709600000, 0x0000000709800000|  0%| F|  |TAMS 0x0000000709600000| PB 0x0000000709600000| Untracked 
+|  57|0x0000000709800000, 0x0000000709800000, 0x0000000709a00000|  0%| F|  |TAMS 0x0000000709800000| PB 0x0000000709800000| Untracked 
+|  58|0x0000000709a00000, 0x0000000709a00000, 0x0000000709c00000|  0%| F|  |TAMS 0x0000000709a00000| PB 0x0000000709a00000| Untracked 
+|  59|0x0000000709c00000, 0x0000000709c00000, 0x0000000709e00000|  0%| F|  |TAMS 0x0000000709c00000| PB 0x0000000709c00000| Untracked 
+|  60|0x0000000709e00000, 0x0000000709e00000, 0x000000070a000000|  0%| F|  |TAMS 0x0000000709e00000| PB 0x0000000709e00000| Untracked 
+|  61|0x000000070a000000, 0x000000070a000000, 0x000000070a200000|  0%| F|  |TAMS 0x000000070a000000| PB 0x000000070a000000| Untracked 
+|  62|0x000000070a200000, 0x000000070a200000, 0x000000070a400000|  0%| F|  |TAMS 0x000000070a200000| PB 0x000000070a200000| Untracked 
+|  63|0x000000070a400000, 0x000000070a400000, 0x000000070a600000|  0%| F|  |TAMS 0x000000070a400000| PB 0x000000070a400000| Untracked 
+|  64|0x000000070a600000, 0x000000070a600000, 0x000000070a800000|  0%| F|  |TAMS 0x000000070a600000| PB 0x000000070a600000| Untracked 
+|  65|0x000000070a800000, 0x000000070a800000, 0x000000070aa00000|  0%| F|  |TAMS 0x000000070a800000| PB 0x000000070a800000| Untracked 
+|  66|0x000000070aa00000, 0x000000070aa00000, 0x000000070ac00000|  0%| F|  |TAMS 0x000000070aa00000| PB 0x000000070aa00000| Untracked 
+|  67|0x000000070ac00000, 0x000000070ac00000, 0x000000070ae00000|  0%| F|  |TAMS 0x000000070ac00000| PB 0x000000070ac00000| Untracked 
+|  68|0x000000070ae00000, 0x000000070ae00000, 0x000000070b000000|  0%| F|  |TAMS 0x000000070ae00000| PB 0x000000070ae00000| Untracked 
+|  69|0x000000070b000000, 0x000000070b000000, 0x000000070b200000|  0%| F|  |TAMS 0x000000070b000000| PB 0x000000070b000000| Untracked 
+|  70|0x000000070b200000, 0x000000070b200000, 0x000000070b400000|  0%| F|  |TAMS 0x000000070b200000| PB 0x000000070b200000| Untracked 
+|  71|0x000000070b400000, 0x000000070b400000, 0x000000070b600000|  0%| F|  |TAMS 0x000000070b400000| PB 0x000000070b400000| Untracked 
+|  72|0x000000070b600000, 0x000000070b600000, 0x000000070b800000|  0%| F|  |TAMS 0x000000070b600000| PB 0x000000070b600000| Untracked 
+|  73|0x000000070b800000, 0x000000070b800000, 0x000000070ba00000|  0%| F|  |TAMS 0x000000070b800000| PB 0x000000070b800000| Untracked 
+|  74|0x000000070ba00000, 0x000000070ba00000, 0x000000070bc00000|  0%| F|  |TAMS 0x000000070ba00000| PB 0x000000070ba00000| Untracked 
+|  75|0x000000070bc00000, 0x000000070bc00000, 0x000000070be00000|  0%| F|  |TAMS 0x000000070bc00000| PB 0x000000070bc00000| Untracked 
+|  76|0x000000070be00000, 0x000000070be00000, 0x000000070c000000|  0%| F|  |TAMS 0x000000070be00000| PB 0x000000070be00000| Untracked 
+|  77|0x000000070c000000, 0x000000070c000000, 0x000000070c200000|  0%| F|  |TAMS 0x000000070c000000| PB 0x000000070c000000| Untracked 
+|  78|0x000000070c200000, 0x000000070c200000, 0x000000070c400000|  0%| F|  |TAMS 0x000000070c200000| PB 0x000000070c200000| Untracked 
+|  79|0x000000070c400000, 0x000000070c400000, 0x000000070c600000|  0%| F|  |TAMS 0x000000070c400000| PB 0x000000070c400000| Untracked 
+|  80|0x000000070c600000, 0x000000070c600000, 0x000000070c800000|  0%| F|  |TAMS 0x000000070c600000| PB 0x000000070c600000| Untracked 
+|  81|0x000000070c800000, 0x000000070c800000, 0x000000070ca00000|  0%| F|  |TAMS 0x000000070c800000| PB 0x000000070c800000| Untracked 
+|  82|0x000000070ca00000, 0x000000070ca00000, 0x000000070cc00000|  0%| F|  |TAMS 0x000000070ca00000| PB 0x000000070ca00000| Untracked 
+|  83|0x000000070cc00000, 0x000000070cc00000, 0x000000070ce00000|  0%| F|  |TAMS 0x000000070cc00000| PB 0x000000070cc00000| Untracked 
+|  84|0x000000070ce00000, 0x000000070ce00000, 0x000000070d000000|  0%| F|  |TAMS 0x000000070ce00000| PB 0x000000070ce00000| Untracked 
+|  85|0x000000070d000000, 0x000000070d000000, 0x000000070d200000|  0%| F|  |TAMS 0x000000070d000000| PB 0x000000070d000000| Untracked 
+|  86|0x000000070d200000, 0x000000070d200000, 0x000000070d400000|  0%| F|  |TAMS 0x000000070d200000| PB 0x000000070d200000| Untracked 
+|  87|0x000000070d400000, 0x000000070d400000, 0x000000070d600000|  0%| F|  |TAMS 0x000000070d400000| PB 0x000000070d400000| Untracked 
+|  88|0x000000070d600000, 0x000000070d600000, 0x000000070d800000|  0%| F|  |TAMS 0x000000070d600000| PB 0x000000070d600000| Untracked 
+|  89|0x000000070d800000, 0x000000070d800000, 0x000000070da00000|  0%| F|  |TAMS 0x000000070d800000| PB 0x000000070d800000| Untracked 
+|  90|0x000000070da00000, 0x000000070da00000, 0x000000070dc00000|  0%| F|  |TAMS 0x000000070da00000| PB 0x000000070da00000| Untracked 
+|  91|0x000000070dc00000, 0x000000070dc00000, 0x000000070de00000|  0%| F|  |TAMS 0x000000070dc00000| PB 0x000000070dc00000| Untracked 
+|  92|0x000000070de00000, 0x000000070de00000, 0x000000070e000000|  0%| F|  |TAMS 0x000000070de00000| PB 0x000000070de00000| Untracked 
+|  93|0x000000070e000000, 0x000000070e000000, 0x000000070e200000|  0%| F|  |TAMS 0x000000070e000000| PB 0x000000070e000000| Untracked 
+|  94|0x000000070e200000, 0x000000070e200000, 0x000000070e400000|  0%| F|  |TAMS 0x000000070e200000| PB 0x000000070e200000| Untracked 
+|  95|0x000000070e400000, 0x000000070e400000, 0x000000070e600000|  0%| F|  |TAMS 0x000000070e400000| PB 0x000000070e400000| Untracked 
+|  96|0x000000070e600000, 0x000000070e600000, 0x000000070e800000|  0%| F|  |TAMS 0x000000070e600000| PB 0x000000070e600000| Untracked 
+|  97|0x000000070e800000, 0x000000070e800000, 0x000000070ea00000|  0%| F|  |TAMS 0x000000070e800000| PB 0x000000070e800000| Untracked 
+|  98|0x000000070ea00000, 0x000000070ea00000, 0x000000070ec00000|  0%| F|  |TAMS 0x000000070ea00000| PB 0x000000070ea00000| Untracked 
+|  99|0x000000070ec00000, 0x000000070ec00000, 0x000000070ee00000|  0%| F|  |TAMS 0x000000070ec00000| PB 0x000000070ec00000| Untracked 
+| 100|0x000000070ee00000, 0x000000070ee00000, 0x000000070f000000|  0%| F|  |TAMS 0x000000070ee00000| PB 0x000000070ee00000| Untracked 
+| 101|0x000000070f000000, 0x000000070f000000, 0x000000070f200000|  0%| F|  |TAMS 0x000000070f000000| PB 0x000000070f000000| Untracked 
+| 102|0x000000070f200000, 0x000000070f200000, 0x000000070f400000|  0%| F|  |TAMS 0x000000070f200000| PB 0x000000070f200000| Untracked 
+| 103|0x000000070f400000, 0x000000070f400000, 0x000000070f600000|  0%| F|  |TAMS 0x000000070f400000| PB 0x000000070f400000| Untracked 
+| 104|0x000000070f600000, 0x000000070f600000, 0x000000070f800000|  0%| F|  |TAMS 0x000000070f600000| PB 0x000000070f600000| Untracked 
+| 105|0x000000070f800000, 0x000000070f800000, 0x000000070fa00000|  0%| F|  |TAMS 0x000000070f800000| PB 0x000000070f800000| Untracked 
+| 106|0x000000070fa00000, 0x000000070fa00000, 0x000000070fc00000|  0%| F|  |TAMS 0x000000070fa00000| PB 0x000000070fa00000| Untracked 
+| 107|0x000000070fc00000, 0x000000070fc00000, 0x000000070fe00000|  0%| F|  |TAMS 0x000000070fc00000| PB 0x000000070fc00000| Untracked 
+| 108|0x000000070fe00000, 0x000000070fe00000, 0x0000000710000000|  0%| F|  |TAMS 0x000000070fe00000| PB 0x000000070fe00000| Untracked 
+| 109|0x0000000710000000, 0x0000000710000000, 0x0000000710200000|  0%| F|  |TAMS 0x0000000710000000| PB 0x0000000710000000| Untracked 
+| 110|0x0000000710200000, 0x0000000710200000, 0x0000000710400000|  0%| F|  |TAMS 0x0000000710200000| PB 0x0000000710200000| Untracked 
+| 111|0x0000000710400000, 0x0000000710400000, 0x0000000710600000|  0%| F|  |TAMS 0x0000000710400000| PB 0x0000000710400000| Untracked 
+| 112|0x0000000710600000, 0x0000000710600000, 0x0000000710800000|  0%| F|  |TAMS 0x0000000710600000| PB 0x0000000710600000| Untracked 
+| 113|0x0000000710800000, 0x0000000710800000, 0x0000000710a00000|  0%| F|  |TAMS 0x0000000710800000| PB 0x0000000710800000| Untracked 
+| 114|0x0000000710a00000, 0x0000000710a00000, 0x0000000710c00000|  0%| F|  |TAMS 0x0000000710a00000| PB 0x0000000710a00000| Untracked 
+| 115|0x0000000710c00000, 0x0000000710c00000, 0x0000000710e00000|  0%| F|  |TAMS 0x0000000710c00000| PB 0x0000000710c00000| Untracked 
+| 116|0x0000000710e00000, 0x0000000710e00000, 0x0000000711000000|  0%| F|  |TAMS 0x0000000710e00000| PB 0x0000000710e00000| Untracked 
+| 117|0x0000000711000000, 0x0000000711000000, 0x0000000711200000|  0%| F|  |TAMS 0x0000000711000000| PB 0x0000000711000000| Untracked 
+| 118|0x0000000711200000, 0x0000000711200000, 0x0000000711400000|  0%| F|  |TAMS 0x0000000711200000| PB 0x0000000711200000| Untracked 
+| 119|0x0000000711400000, 0x0000000711400000, 0x0000000711600000|  0%| F|  |TAMS 0x0000000711400000| PB 0x0000000711400000| Untracked 
+| 120|0x0000000711600000, 0x0000000711600000, 0x0000000711800000|  0%| F|  |TAMS 0x0000000711600000| PB 0x0000000711600000| Untracked 
+| 121|0x0000000711800000, 0x0000000711800000, 0x0000000711a00000|  0%| F|  |TAMS 0x0000000711800000| PB 0x0000000711800000| Untracked 
+| 122|0x0000000711a00000, 0x0000000711b566f8, 0x0000000711c00000| 66%| E|  |TAMS 0x0000000711a00000| PB 0x0000000711a00000| Complete 
+| 123|0x0000000711c00000, 0x0000000711e00000, 0x0000000711e00000|100%| E|CS|TAMS 0x0000000711c00000| PB 0x0000000711c00000| Complete 
+| 124|0x0000000711e00000, 0x0000000712000000, 0x0000000712000000|100%| E|CS|TAMS 0x0000000711e00000| PB 0x0000000711e00000| Complete 
+| 125|0x0000000712000000, 0x0000000712200000, 0x0000000712200000|100%| E|CS|TAMS 0x0000000712000000| PB 0x0000000712000000| Complete 
+| 126|0x0000000712200000, 0x0000000712400000, 0x0000000712400000|100%| E|CS|TAMS 0x0000000712200000| PB 0x0000000712200000| Complete 
+
+Card table byte_map: [0x00000200f68c0000,0x00000200f70b0000] _byte_map_base: 0x00000200f30ad000
+
+Marking Bits: (CMBitMap*) 0x00000200ed9acd10
+ Bits: [0x00000200f70b0000, 0x00000200fb018000)
+
+Polling page: 0x00000200ed110000
+
+Metaspace:
+
+Usage:
+  Non-class:      2.89 MB used.
+      Class:    336.16 KB used.
+       Both:      3.22 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,       3.00 MB (  5%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,     384.00 KB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,       3.38 MB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  11.34 MB
+       Class:  15.64 MB
+        Both:  26.98 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 38.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 54.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 79.
+num_chunk_merges: 0.
+num_chunk_splits: 57.
+num_chunks_enlarged: 46.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120000Kb used=255Kb max_used=255Kb free=119744Kb
+ bounds [0x0000020087ad0000, 0x0000020087d40000, 0x000002008f000000]
+CodeHeap 'profiled nmethods': size=120000Kb used=1223Kb max_used=1223Kb free=118777Kb
+ bounds [0x0000020080000000, 0x0000020080270000, 0x0000020087530000]
+CodeHeap 'non-nmethods': size=5760Kb used=1344Kb max_used=1370Kb free=4415Kb
+ bounds [0x0000020087530000, 0x00000200877a0000, 0x0000020087ad0000]
+ total_blobs=1229 nmethods=777 adapters=357
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 719.680 Thread 0x00000200fda69b20 nmethod 770 0x0000020087b0cc10 code [0x0000020087b0cda0, 0x0000020087b0ce70]
+Event: 719.680 Thread 0x00000200fda69b20  763   !   3       jdk.internal.misc.ScopedMemoryAccess::putLongInternal (35 bytes)
+Event: 719.680 Thread 0x00000200fda69b20 nmethod 763 0x000002008012cc10 code [0x000002008012cdc0, 0x000002008012d040]
+Event: 719.680 Thread 0x00000200fda69b20  765   !   3       java.nio.DirectLongBufferU::put (39 bytes)
+Event: 719.680 Thread 0x00000200fda69b20 nmethod 765 0x000002008012d190 code [0x000002008012d3e0, 0x000002008012dd58]
+Event: 719.680 Thread 0x00000200fda69b20  771       3       java.util.WeakHashMap::maskNull (12 bytes)
+Event: 719.681 Thread 0x00000200fda69b20 nmethod 771 0x000002008012e210 code [0x000002008012e3a0, 0x000002008012e4e8]
+Event: 719.681 Thread 0x00000200fda69b20  766       3       java.lang.StringConcatHelper::newString (67 bytes)
+Event: 719.681 Thread 0x00000200fda69b20 nmethod 766 0x000002008012e590 code [0x000002008012e800, 0x000002008012f1e0]
+Event: 719.687 Thread 0x00000200fda69b20  772       3       sun.net.www.ParseUtil::firstEncodeIndex (86 bytes)
+Event: 719.690 Thread 0x00000200fda69b20 nmethod 772 0x000002008012f590 code [0x000002008012f7e0, 0x00000200801301e8]
+Event: 719.691 Thread 0x00000200fda69b20  774   !   3       java.util.zip.Inflater::needsDictionary (19 bytes)
+Event: 719.691 Thread 0x00000200fda69b20 nmethod 774 0x0000020080130590 code [0x0000020080130740, 0x0000020080130948]
+Event: 719.692 Thread 0x00000200fda69b20  775   !   3       java.util.zip.Inflater::needsInput (55 bytes)
+Event: 719.692 Thread 0x00000200fda69b20 nmethod 775 0x0000020080130a10 code [0x0000020080130bc0, 0x0000020080130f98]
+Event: 719.740 Thread 0x00000200fda63050 nmethod 769 0x0000020087b0cf10 code [0x0000020087b0d140, 0x0000020087b0eb60]
+Event: 719.740 Thread 0x00000200fda63050  773       4       java.util.concurrent.ConcurrentHashMap::get (162 bytes)
+Event: 719.744 Thread 0x00000200fda63050 nmethod 773 0x0000020087b0f310 code [0x0000020087b0f4c0, 0x0000020087b0f810]
+Event: 719.994 Thread 0x00000200fda69b20  776       3       jdk.internal.loader.BuiltinClassLoader::findLoadedModule (33 bytes)
+Event: 719.994 Thread 0x00000200fda69b20 nmethod 776 0x0000020080131110 code [0x0000020080131340, 0x00000200801319a8]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (10 events):
+Event: 0.014 Loaded shared library C:\Program Files\Java\jdk-21\bin\java.dll
+Event: 0.049 Loaded shared library C:\Program Files\Java\jdk-21\bin\jsvml.dll
+Event: 0.065 Loaded shared library C:\Program Files\Java\jdk-21\bin\net.dll
+Event: 0.068 Loaded shared library C:\Program Files\Java\jdk-21\bin\nio.dll
+Event: 0.074 Loaded shared library C:\Program Files\Java\jdk-21\bin\zip.dll
+Event: 0.078 Loaded shared library C:\Program Files\Java\jdk-21\bin\verify.dll
+Event: 0.190 Loaded shared library C:\Program Files\Java\jdk-21\bin\jimage.dll
+Event: 0.254 Loaded shared library C:\Program Files\Java\jdk-21\bin\sunmscapi.dll
+Event: 0.295 Loaded shared library C:\Program Files\Java\jdk-21\bin\extnet.dll
+Event: 0.452 Loaded shared library E:\All Softwares\apache-jmeter-5.6.3\ServerAgent-2.2.3\lib\sigar-amd64-winnt.dll
+
+Deoptimization events (20 events):
+Event: 0.498 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x0000020087aef8e8 sp=0x000000ede0afd760
+Event: 0.498 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x00000200875846a2 sp=0x000000ede0afd6b8 mode 2
+Event: 0.498 Thread 0x00000200eb7165b0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020087af1ed4 relative=0x0000000000000194
+Event: 0.498 Thread 0x00000200eb7165b0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020087af1ed4 method=java.lang.invoke.VarHandle.checkAccessModeThenIsDirect(Ljava/lang/invoke/VarHandle$AccessDescriptor;)Z @ 4 c2
+Event: 0.498 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x0000020087af1ed4 sp=0x000000ede0afd800
+Event: 0.498 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x00000200875846a2 sp=0x000000ede0afd7d0 mode 2
+Event: 0.527 Thread 0x00000200eb7165b0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020087afc500 relative=0x00000000000006a0
+Event: 0.527 Thread 0x00000200eb7165b0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020087afc500 method=java.lang.StringLatin1.newString([BII)Ljava/lang/String; @ 1 c2
+Event: 0.527 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x0000020087afc500 sp=0x000000ede0afe3e0
+Event: 0.527 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x00000200875846a2 sp=0x000000ede0afe328 mode 2
+Event: 0.533 Thread 0x00000200eb7165b0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020087ae3974 relative=0x0000000000000054
+Event: 0.533 Thread 0x00000200eb7165b0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020087ae3974 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4 c2
+Event: 0.533 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x0000020087ae3974 sp=0x000000ede0afe1c0
+Event: 0.533 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x00000200875846a2 sp=0x000000ede0afe160 mode 2
+Event: 719.668 Thread 0x00000200eb7165b0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020087b03d74 relative=0x00000000000007b4
+Event: 719.668 Thread 0x00000200eb7165b0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020087b03d74 method=java.util.regex.Pattern$Start.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 10 c2
+Event: 719.668 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x0000020087b03d74 sp=0x000000ede0afeba0
+Event: 719.668 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x00000200875846a2 sp=0x000000ede0afeb00 mode 2
+Event: 719.671 Thread 0x00000200eb7165b0 DEOPT PACKING pc=0x000002008007728a sp=0x000000ede0afe620
+Event: 719.671 Thread 0x00000200eb7165b0 DEOPT UNPACKING pc=0x0000020087584e42 sp=0x000000ede0afda58 mode 0
+
+Classes loaded (20 events):
+Event: 18.456 Loading class java/lang/Throwable$PrintStreamOrWriter done
+Event: 18.456 Loading class java/lang/Throwable$WrappedPrintWriter done
+Event: 719.667 Loading class java/lang/ArrayIndexOutOfBoundsException
+Event: 719.667 Loading class java/lang/IndexOutOfBoundsException
+Event: 719.667 Loading class java/lang/IndexOutOfBoundsException done
+Event: 719.667 Loading class java/lang/ArrayIndexOutOfBoundsException done
+Event: 719.668 Loading class java/util/regex/Pattern$LookBehindEndNode
+Event: 719.668 Loading class java/util/regex/Pattern$LookBehindEndNode done
+Event: 719.668 Loading class java/util/regex/Pattern$NotBehind
+Event: 719.668 Loading class java/util/regex/Pattern$NotBehind done
+Event: 719.668 Loading class java/util/regex/Pattern$BnM
+Event: 719.668 Loading class java/util/regex/Pattern$BnM done
+Event: 719.670 Loading class java/net/URLClassLoader$3
+Event: 719.670 Loading class java/net/URLClassLoader$3 done
+Event: 719.670 Loading class java/net/URLClassLoader$3$1
+Event: 719.670 Loading class java/net/URLClassLoader$3$1 done
+Event: 719.671 Loading class java/io/BufferedReader
+Event: 719.671 Loading class java/io/BufferedReader done
+Event: 719.671 Loading class sun/nio/cs/StreamDecoder
+Event: 719.671 Loading class sun/nio/cs/StreamDecoder done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (5 events):
+Event: 0.089 Thread 0x00000200eb7165b0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000712088008}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000712088008) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.225 Thread 0x00000200eb7165b0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000712197f30}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, int, int, int, int)'> (0x0000000712197f30) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.288 Thread 0x00000200eb7165b0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000711f5efc0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, int, int, int, int)'> (0x0000000711f5efc0) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.540 Thread 0x00000200eb7165b0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000711a98a50}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000711a98a50) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 719.995 Thread 0x00000200fe3615f0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000711cf1c10}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object)'> (0x0000000711cf1c10) 
+thrown [s\open\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 0.324 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.324 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 0.526 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.526 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 0.534 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.534 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 0.558 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.558 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 1.569 Executing VM operation: Cleanup
+Event: 1.569 Executing VM operation: Cleanup done
+Event: 10.639 Executing VM operation: Cleanup
+Event: 10.639 Executing VM operation: Cleanup done
+Event: 261.001 Executing VM operation: Cleanup
+Event: 261.001 Executing VM operation: Cleanup done
+Event: 391.037 Executing VM operation: Cleanup
+Event: 391.037 Executing VM operation: Cleanup done
+Event: 690.428 Executing VM operation: Cleanup
+Event: 690.428 Executing VM operation: Cleanup done
+Event: 719.710 Executing VM operation: Cleanup
+Event: 719.710 Executing VM operation: Cleanup done
+
+Events (16 events):
+Event: 0.034 Thread 0x00000200eb7165b0 Thread added: 0x00000200eb7165b0
+Event: 0.047 Thread 0x00000200fda4ad50 Thread added: 0x00000200fda4ad50
+Event: 0.047 Thread 0x00000200fda4bc70 Thread added: 0x00000200fda4bc70
+Event: 0.047 Thread 0x00000200fda4da40 Thread added: 0x00000200fda4da40
+Event: 0.047 Thread 0x00000200fda509e0 Thread added: 0x00000200fda509e0
+Event: 0.047 Thread 0x00000200fda53950 Thread added: 0x00000200fda53950
+Event: 0.047 Thread 0x00000200fda526b0 Thread added: 0x00000200fda526b0
+Event: 0.047 Thread 0x00000200fda63050 Thread added: 0x00000200fda63050
+Event: 0.048 Thread 0x00000200fda69b20 Thread added: 0x00000200fda69b20
+Event: 0.061 Thread 0x00000200fdcdd470 Thread added: 0x00000200fdcdd470
+Event: 0.062 Thread 0x00000200fdcdef00 Thread added: 0x00000200fdcdef00
+Event: 0.245 Thread 0x00000200fda67fe0 Thread added: 0x00000200fda67fe0
+Event: 0.456 Thread 0x00000200fda67fe0 Thread exited: 0x00000200fda67fe0
+Event: 0.491 Thread 0x00000200fe3615f0 Thread added: 0x00000200fe3615f0
+Event: 0.535 Thread 0x00000200fda69450 Thread added: 0x00000200fda69450
+Event: 5.589 Thread 0x00000200fda69450 Thread exited: 0x00000200fda69450
+
+
+Dynamic libraries:
+0x00007ff754c50000 - 0x00007ff754c60000 	C:\Program Files\Java\jdk-21\bin\java.exe
+0x00007ff9a76d0000 - 0x00007ff9a78e7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9a5e60000 - 0x00007ff9a5f24000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9a4ee0000 - 0x00007ff9a528d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9a4dc0000 - 0x00007ff9a4ed1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff98cca0000 - 0x00007ff98ccb9000 	C:\Program Files\Java\jdk-21\bin\jli.dll
+0x00007ff98cc50000 - 0x00007ff98cc6b000 	C:\Program Files\Java\jdk-21\bin\VCRUNTIME140.dll
+0x00007ff9a5d60000 - 0x00007ff9a5e12000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9a5cb0000 - 0x00007ff9a5d57000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9a7110000 - 0x00007ff9a71b9000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9a5310000 - 0x00007ff9a5338000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff9a7570000 - 0x00007ff9a7684000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9a6eb0000 - 0x00007ff9a705e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9a4b10000 - 0x00007ff9a4b36000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff980d50000 - 0x00007ff980fe3000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ff9a5570000 - 0x00007ff9a5599000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9a49f0000 - 0x00007ff9a4b09000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9a4b40000 - 0x00007ff9a4bda000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9985e0000 - 0x00007ff9985ea000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9a5e20000 - 0x00007ff9a5e51000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff99c4a0000 - 0x00007ff99c4ac000 	C:\Program Files\Java\jdk-21\bin\vcruntime140_1.dll
+0x00007ff989a80000 - 0x00007ff989b0e000 	C:\Program Files\Java\jdk-21\bin\msvcp140.dll
+0x00007ff8d7b70000 - 0x00007ff8d8885000 	C:\Program Files\Java\jdk-21\bin\server\jvm.dll
+0x00007ff9a5470000 - 0x00007ff9a54e1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9a3840000 - 0x00007ff9a388d000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ff99c600000 - 0x00007ff99c634000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff9a3820000 - 0x00007ff9a3833000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ff9a3ad0000 - 0x00007ff9a3ae8000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff997f10000 - 0x00007ff997f1a000 	C:\Program Files\Java\jdk-21\bin\jimage.dll
+0x00007ff9a2340000 - 0x00007ff9a2572000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff9a61f0000 - 0x00007ff9a657d000 	C:\WINDOWS\System32\combase.dll
+0x00007ff9a71e0000 - 0x00007ff9a72b7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff999590000 - 0x00007ff9995c2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff9a5290000 - 0x00007ff9a530b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff98a250000 - 0x00007ff98a26f000 	C:\Program Files\Java\jdk-21\bin\java.dll
+0x00007ff9a6580000 - 0x00007ff9a6de8000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ff9a2900000 - 0x00007ff9a31fe000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ff9a27c0000 - 0x00007ff9a28ff000 	C:\WINDOWS\SYSTEM32\wintypes.dll
+0x00007ff9a7310000 - 0x00007ff9a7409000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ff9a55a0000 - 0x00007ff9a55fe000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ff9a4920000 - 0x00007ff9a4941000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ff963fa0000 - 0x00007ff964077000 	C:\Program Files\Java\jdk-21\bin\jsvml.dll
+0x00007ff997650000 - 0x00007ff997660000 	C:\Program Files\Java\jdk-21\bin\net.dll
+0x00007ff99cae0000 - 0x00007ff99cc16000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ff9a3f30000 - 0x00007ff9a3f99000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ff98a230000 - 0x00007ff98a246000 	C:\Program Files\Java\jdk-21\bin\nio.dll
+0x00007ff982060000 - 0x00007ff982078000 	C:\Program Files\Java\jdk-21\bin\zip.dll
+0x00007ff997050000 - 0x00007ff997060000 	C:\Program Files\Java\jdk-21\bin\verify.dll
+0x00007ff997280000 - 0x00007ff99728e000 	C:\Program Files\Java\jdk-21\bin\sunmscapi.dll
+0x00007ff9a4be0000 - 0x00007ff9a4d47000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ff9a43a0000 - 0x00007ff9a43ce000 	C:\WINDOWS\SYSTEM32\ncrypt.dll
+0x00007ff9a4360000 - 0x00007ff9a4397000 	C:\WINDOWS\SYSTEM32\NTASN1.dll
+0x00007ff997040000 - 0x00007ff997048000 	C:\WINDOWS\system32\wshunix.dll
+0x00007ff9a4280000 - 0x00007ff9a429b000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ff9a3a30000 - 0x00007ff9a3a65000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ff9a3fd0000 - 0x00007ff9a3ff8000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ff9a4260000 - 0x00007ff9a426c000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00007ff9a34d0000 - 0x00007ff9a34fd000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ff9a5560000 - 0x00007ff9a5569000 	C:\WINDOWS\System32\NSI.dll
+0x00007ff997270000 - 0x00007ff997277000 	C:\Program Files\Java\jdk-21\bin\extnet.dll
+0x0000000010000000 - 0x0000000010070000 	E:\All Softwares\apache-jmeter-5.6.3\ServerAgent-2.2.3\lib\sigar-amd64-winnt.dll
+0x00007ff9a5600000 - 0x00007ff9a57a5000 	C:\WINDOWS\System32\ole32.dll
+0x00007ff99a140000 - 0x00007ff99a159000 	C:\WINDOWS\SYSTEM32\NETAPI32.dll
+0x00007ff987e60000 - 0x00007ff987eb9000 	C:\WINDOWS\SYSTEM32\pdh.dll
+0x00007ff9a34c0000 - 0x00007ff9a34cc000 	C:\WINDOWS\SYSTEM32\NETUTILS.DLL
+0x00007ff98d740000 - 0x00007ff98d768000 	C:\WINDOWS\SYSTEM32\SRVCLI.DLL
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955;C:\Program Files\Java\jdk-21\bin\server;E:\All Softwares\apache-jmeter-5.6.3\ServerAgent-2.2.3\lib
+
+VM Arguments:
+java_command: E:\\All Softwares\\apache-jmeter-5.6.3\\ServerAgent-2.2.3\\startAgent.bat\\..\\CMDRunner.jar --tool PerfMonAgent
+java_class_path (initial): E:\\All Softwares\\apache-jmeter-5.6.3\\ServerAgent-2.2.3\\startAgent.bat\\..\\CMDRunner.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4255121408                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2552233984                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4255121408                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-21
+PATH=C:\Program Files\Python312\Scripts\;C:\Program Files\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Java\jdk-21\bin;C:\eclipse-workspace\DevMedelz\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\Shekhani Laptops\AppData\Local\Microsoft\WindowsApps;C:\Users\Shekhani Laptops\AppData\Local\Programs\mongosh\;C:\Users\Shekhani Laptops\AppData\Local\GitHubDesktop\bin;C:\Users\Shekhani Laptops\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Shekhani Laptops\AppData\Roaming\npm
+USERNAME=Shekhani Laptops
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+TMP=C:\Users\SHEKHA~1\AppData\Local\Temp
+TEMP=C:\Users\SHEKHA~1\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3958)
+OS uptime: 6 days 23:56 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xf4, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, rtm, adx, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, f16c
+Processor Information for all 8 processors :
+  Max Mhz: 1896, Current Mhz: 1696, Mhz Limit: 1687
+
+Memory: 4k page, system-wide physical 16227M (5181M free)
+TotalPageFile size 33635M (AvailPageFile size 15337M)
+current process WorkingSet (physical memory assigned to process): 54M, peak: 54M
+current process commit charge ("private bytes"): 345M, peak: 346M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (21.0.1+12-LTS-29) for windows-amd64 JRE (21.0.1+12-LTS-29), built on 2023-10-05T13:27:09Z by "mach5one" with MS VC++ 17.1 (VS2022)
+
+END.

@@ -1,0 +1,8 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1726123999278,145020,1- Analyze Video Request (POST),200,OK,Thread Group 1-1,text,true,,686,16438822,1,1,https://eda.smartforum.online/analyze_video,145015,0,1222
+1726124144334,1120,2- Analyze Video Request (GET) 354,200,OK,Thread Group 1-1,text,true,,23467,1699,1,1,https://eda.smartforum.online/analyze_video?job_id=354,1110,0,341
+1726124145460,511,3- Frames Chart (GET) 354,200,OK,Thread Group 1-1,text,true,,9369,1698,1,1,https://eda.smartforum.online/frames-chart?job_id=354,506,0,0
+1726124145973,659,1- Text Analysis (POST),201,Created,Thread Group 1-1,text,true,,685,1998,1,1,https://eda.smartforum.online/text-analysis,659,0,0
+1726124146636,501,2- Text Analysis (GET) 355,200,OK,Thread Group 1-1,text,true,,1478,1723,1,1,https://eda.smartforum.online/text-analysis?job_id=355&page=1&per_page=1000000,500,0,0
+1726124147140,753,1- Text Analysis by File,201,Created,Thread Group 1-1,text,true,,685,2067,1,1,https://eda.smartforum.online/text-analysis,753,0,0
+1726124147955,2,Debug Sampler,200,OK,Thread Group 1-1,text,true,,331,0,1,1,null,0,0,0
